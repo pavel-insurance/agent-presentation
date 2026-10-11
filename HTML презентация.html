@@ -1,0 +1,3602 @@
+<!DOCTYPE html>
+<!-- saved from url=(0168)file:///C:/Users/%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB/Downloads/%D0%9B%D0%A3%D0%A7%D0%A8%D0%90%D0%AF%20%D0%9F%D0%A0%D0%95%D0%97%D0%95%D0%9D%D0%A2%D0%90%D0%A6%D0%98%D0%AF.html -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Вводный в работу · Страховой агент</title>
+<style>
+  :root{
+    --bg-page:#f4f8ff;
+    --surface:#ffffff;
+    --surface-2:#f0f6ff;
+    --surface-3:#e3efff;
+    --line-soft:#dae6f5;
+    --line-mid:#c2d5ef;
+    --line-neon-soft:#a8d4ff;
+    --line-neon:#4aa8ff;
+    --cobalt:#0a4fa8;
+    --cobalt-bright:#1c72e0;
+    --neon:#2ea8ff;
+    --neon-bright:#5cc8ff;
+    --neon-glow:rgba(46,168,255,.35);
+    --cyan:#00d4e8;
+    --ice:#e8f4ff;
+    --text:#0a1f42;
+    --text-soft:#3b5478;
+    --text-muted:#6b83a4;
+    --text-faint:#96a8c1;
+
+    --amber:#c25a1a;
+    --amber-deep:#8a3d0e;
+    --amber-bright:#e88a3c;
+    --amber-soft:#ffe8d4;
+    --amber-glow:rgba(232,138,60,.35);
+    --amber-line:#f5c79a;
+    --amber-text:#4a1f08;
+    --amber-muted:#8a5836;
+
+    --green:#12a86a;
+    --green-soft:#e0f7ec;
+
+    --page-w:794px;
+    --page-h:1123px;
+    --page-pad-x:60px;
+    --page-pad-y:54px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{
+    margin:0;padding:0;
+    background:#dce8f7;
+    font-family:'Segoe UI',-apple-system,system-ui,'Helvetica Neue',Roboto,Arial,sans-serif;
+    color:var(--text);
+    line-height:1.6;
+    font-size:14px;
+    -webkit-font-smoothing:antialiased;
+    font-weight:400;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+
+  #scaleWrap{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:16px 0 40px;
+  }
+
+  .page{
+    width:var(--page-w);
+    min-height:var(--page-h);
+    margin:16px auto;
+    background:var(--bg-page);
+    padding:0;
+    box-shadow:0 8px 60px rgba(10,79,168,.15);
+    position:relative;
+    overflow:visible;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+    flex:none;
+  }
+  .page-inner{
+    padding:var(--page-pad-y) var(--page-pad-x);
+    min-height:var(--page-h);
+    display:flex;
+    flex-direction:column;
+    overflow:visible;
+  }
+
+  /* ============ ОБЛОЖКА ============ */
+  .cover{
+    background:linear-gradient(160deg,#ffffff 0%,#eaf2ff 50%,#d6e8ff 100%);
+    padding:0;position:relative;
+    display:flex;flex-direction:column;justify-content:space-between;
+    overflow:hidden;
+    min-height:var(--page-h);
+  }
+  .cover::before{
+    content:"";position:absolute;top:-20%;right:-20%;
+    width:80%;height:80%;
+    background:radial-gradient(circle,rgba(46,168,255,.25),transparent 60%);
+    pointer-events:none;
+  }
+  .cover::after{
+    content:"";position:absolute;bottom:-30%;left:-20%;
+    width:80%;height:80%;
+    background:radial-gradient(circle,rgba(0,212,232,.18),transparent 60%);
+    pointer-events:none;
+  }
+  .cover-grid{
+    position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(46,168,255,.08) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(46,168,255,.08) 1px,transparent 1px);
+    background-size:52px 52px;pointer-events:none;
+    mask-image:radial-gradient(ellipse at center,black 30%,transparent 80%);
+    -webkit-mask-image:radial-gradient(ellipse at center,black 30%,transparent 80%);
+  }
+  .cover-inner{
+    padding:64px 72px 56px;position:relative;z-index:2;
+    display:flex;flex-direction:column;justify-content:space-between;
+    min-height:var(--page-h);
+  }
+  .cover-top .eyebrow{
+    font-size:10px;letter-spacing:5px;text-transform:uppercase;
+    color:var(--cobalt);margin-bottom:32px;font-weight:700;
+    display:inline-flex;align-items:center;gap:10px;
+  }
+  .cover-top .eyebrow::before{
+    content:"";width:7px;height:7px;background:var(--neon);border-radius:50%;
+    box-shadow:0 0 12px var(--neon-glow);
+  }
+
+  .cover h1{
+    font-size:48px;line-height:1.05;margin:0 0 22px;
+    font-weight:800;letter-spacing:-1.6px;color:var(--text);
+    max-width:600px;
+  }
+  .cover h1 .gold{
+    background:linear-gradient(135deg,var(--cobalt),var(--neon));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    -webkit-text-fill-color:transparent;
+  }
+  .cover .sub{
+    font-size:15px;color:var(--text-soft);max-width:540px;
+    line-height:1.7;margin-bottom:22px;font-weight:400;
+  }
+
+  /* ==== НОВЫЙ ГЕРОЙ ОБЛОЖКИ ==== */
+  .cover-hero{
+    display:grid;grid-template-columns:1.15fr 1fr;
+    gap:28px;align-items:center;
+    margin:22px 0 6px;
+    position:relative;
+  }
+  .cover-hero-text .ch-label{
+    font-size:11px;text-transform:uppercase;
+    letter-spacing:4px;font-weight:700;color:var(--text-soft);line-height:1.8;
+    margin-bottom:10px;
+  }
+  .cover-hero-text .ch-label b{
+    display:block;color:var(--cobalt-bright);font-size:14px;
+    letter-spacing:3px;margin-top:6px;font-weight:800;
+  }
+  .cover-hero-text .ch-claim{
+    font-size:17px;font-weight:800;color:var(--text);
+    letter-spacing:-.3px;line-height:1.35;
+  }
+  .cover-hero-text .ch-claim .grad{
+    background:linear-gradient(135deg,var(--cobalt),var(--neon));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    -webkit-text-fill-color:transparent;
+  }
+  .cover-hero-art{
+    display:flex;justify-content:center;align-items:center;
+  }
+  .cover-hero-art svg{
+    width:100%;max-width:340px;height:auto;display:block;
+    filter:drop-shadow(0 12px 32px rgba(46,168,255,.28));
+  }
+
+  .cover-kpi{
+    display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;
+    margin-top:auto;border-top:1px solid var(--line-mid);padding-top:22px;
+  }
+  .cover-kpi-card{
+    padding:0 18px;border-right:1px solid var(--line-mid);
+  }
+  .cover-kpi-card:last-child{border-right:none}
+  .cover-kpi-card:first-child{padding-left:0}
+  .cover-kpi-card .k-label{
+    font-size:9px;text-transform:uppercase;letter-spacing:3px;
+    color:var(--cobalt);margin-bottom:10px;font-weight:700;
+  }
+  .cover-kpi-card .k-num{
+    font-size:24px;font-weight:800;line-height:1;
+    color:var(--text);letter-spacing:-.5px;
+  }
+  .cover-kpi-card.highlight .k-num{
+    font-size:32px;
+    background:linear-gradient(135deg,var(--cobalt),var(--neon));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    -webkit-text-fill-color:transparent;
+  }
+  .cover-kpi-card .k-note{
+    font-size:10px;color:var(--text-muted);margin-top:10px;
+    line-height:1.45;font-weight:400;
+  }
+  .cover-footer{
+    margin-top:22px;padding-top:16px;border-top:1px solid var(--line-mid);
+    display:flex;justify-content:space-between;font-size:9.5px;
+    letter-spacing:3px;text-transform:uppercase;color:var(--text-muted);font-weight:700;
+    flex-wrap:wrap;gap:8px;
+  }
+
+  /* ============ HEADER ============ */
+  .content-header{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-bottom:14px;margin-bottom:24px;border-bottom:1px solid var(--line-mid);
+    flex:none;
+  }
+  .content-header .tag{
+    font-size:9.5px;letter-spacing:4px;text-transform:uppercase;
+    color:var(--cobalt);font-weight:700;
+    display:inline-flex;align-items:center;gap:10px;
+  }
+  .content-header .tag::before{
+    content:"";width:6px;height:6px;background:var(--neon);
+    border-radius:50%;box-shadow:0 0 10px var(--neon-glow);
+  }
+  .content-header .pnum{
+    font-size:10px;color:var(--text-faint);font-weight:700;letter-spacing:3px;
+  }
+  h2.big-title{
+    font-size:28px;line-height:1.15;margin:0 0 14px;
+    font-weight:800;letter-spacing:-.7px;color:var(--text);
+    flex:none;
+  }
+  h2.big-title .accent{
+    background:linear-gradient(135deg,var(--cobalt),var(--neon));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    -webkit-text-fill-color:transparent;
+  }
+  h2.big-title .money{color:var(--cobalt-bright)}
+  .subtitle{
+    font-size:13px;color:var(--text-soft);margin:0 0 20px;
+    line-height:1.6;max-width:640px;font-weight:400;
+    flex:none;
+  }
+  .subtitle b{color:var(--cobalt);font-weight:700}
+
+  /* ============ ЧТО ЭТО ЗА РАБОТА ============ */
+  .what-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:14px;
+    margin:18px 0;
+  }
+  .what-card{
+    background:var(--surface);border:1px solid var(--line-soft);
+    border-radius:10px;padding:18px 18px;
+    box-shadow:0 2px 16px rgba(46,168,255,.08);
+    position:relative;overflow:hidden;
+  }
+  .what-card::before{
+    content:"";position:absolute;top:-30%;right:-20%;
+    width:70%;height:160%;
+    background:radial-gradient(circle,rgba(46,168,255,.08),transparent 60%);
+    pointer-events:none;
+  }
+  .what-card .wc-icon{
+    width:44px;height:44px;border-radius:50%;
+    background:linear-gradient(135deg,var(--cobalt-bright),var(--neon));
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:14px;
+    box-shadow:0 6px 16px rgba(28,114,224,.28);
+    position:relative;z-index:2;
+  }
+  .what-card .wc-icon svg{width:22px;height:22px;display:block}
+  .what-card .wc-title{
+    font-size:14px;font-weight:800;color:var(--text);
+    margin:0 0 9px;letter-spacing:-.2px;position:relative;z-index:2;
+  }
+  .what-card .wc-text{
+    font-size:11.5px;line-height:1.65;color:var(--text-soft);
+    font-weight:400;position:relative;z-index:2;
+  }
+  .what-card .wc-text b{color:var(--cobalt);font-weight:700}
+
+  /* ============ КАК ЭТО РАБОТАЕТ ============ */
+  .how-steps{
+    display:flex;flex-direction:column;gap:12px;
+    margin:18px 0;
+  }
+  .how-step{
+    display:flex;gap:18px;align-items:flex-start;
+    background:var(--surface);border:1px solid var(--line-soft);
+    border-left:4px solid var(--neon);border-radius:8px;
+    padding:16px 20px;
+    box-shadow:0 2px 12px rgba(46,168,255,.06);
+  }
+  .how-step .hs-num{
+    flex:none;width:30px;height:30px;border-radius:50%;
+    background:linear-gradient(135deg,var(--cobalt),var(--neon));
+    color:#fff;font-weight:800;font-size:12px;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 12px rgba(28,114,224,.3);
+  }
+  .how-step .hs-body{flex:1}
+  .how-step .hs-title{
+    font-size:13px;font-weight:800;color:var(--text);
+    margin:0 0 5px;letter-spacing:-.2px;
+  }
+  .how-step .hs-text{
+    font-size:11px;line-height:1.6;color:var(--text-soft);font-weight:400;
+  }
+  .how-step .hs-text b{color:var(--cobalt);font-weight:700}
+
+  /* ============ СТРАХОВАНИЕ ============ */
+  .ins-intro{
+    background:linear-gradient(135deg,rgba(46,168,255,.10),rgba(0,212,232,.05));
+    border:1px solid var(--line-neon-soft);
+    border-left:4px solid var(--neon);
+    border-radius:10px;padding:18px 22px;margin-bottom:18px;
+  }
+  .ins-intro .ii-tag{
+    font-size:9px;letter-spacing:4px;text-transform:uppercase;
+    color:var(--cobalt);font-weight:800;margin-bottom:9px;
+  }
+  .ins-intro .ii-title{
+    font-size:16px;font-weight:800;color:var(--text);
+    letter-spacing:-.3px;margin-bottom:9px;line-height:1.3;
+  }
+  .ins-intro .ii-lead{
+    font-size:12px;line-height:1.65;color:var(--text-soft);font-weight:400;
+  }
+  .ins-intro .ii-lead b{color:var(--cobalt);font-weight:700}
+
+  .ins-compare{
+    display:grid;grid-template-columns:1fr 1.4fr;
+    gap:14px;margin:18px 0;
+  }
+  .ins-col{
+    border-radius:10px;padding:18px 14px;
+    position:relative;overflow:hidden;
+    display:flex;flex-direction:column;
+  }
+  .ins-col::before{
+    content:"";position:absolute;top:-30%;right:-30%;
+    width:100%;height:100%;
+    background:radial-gradient(circle,rgba(74,222,154,.18),transparent 60%);
+    pointer-events:none;
+  }
+  .ins-col.ins-safe{
+    background:linear-gradient(160deg,#ffffff 0%,#e8fbf0 60%,#c9f2dc 100%);
+    border:1px solid var(--green);
+    box-shadow:0 8px 32px rgba(18,168,106,.18);
+  }
+  .ins-col.ins-unsafe{
+    background:linear-gradient(160deg,#ffffff 0%,#fff2e0 60%,#ffe0bd 100%);
+    border:1px solid var(--amber-bright);
+    box-shadow:0 8px 32px rgba(232,138,60,.18);
+  }
+  .ins-col.ins-unsafe::before{
+    background:radial-gradient(circle,rgba(232,138,60,.18),transparent 60%);
+  }
+  .ins-col-head{
+    text-align:center;position:relative;z-index:2;margin-bottom:12px;
+  }
+  .ins-tag{
+    display:inline-block;font-size:9px;letter-spacing:4px;
+    text-transform:uppercase;font-weight:800;
+    padding:4px 12px;border-radius:6px;margin-bottom:9px;
+  }
+  .ins-tag-safe{background:#12a86a;color:#fff}
+  .ins-tag-unsafe{background:var(--amber-bright);color:#fff}
+  .ins-title{
+    font-size:14px;font-weight:800;color:var(--text);
+    letter-spacing:-.2px;line-height:1.3;
+  }
+  .ins-title b{color:var(--green);font-weight:800}
+  .ins-col.ins-unsafe .ins-title b{color:var(--amber);font-weight:800}
+
+  .ins-people{
+    display:flex;justify-content:center;gap:10px;
+    position:relative;z-index:2;padding:8px 0;
+  }
+  .ins-people-4{
+    flex-wrap:wrap;gap:6px;
+  }
+  .ins-person{
+    width:76px;height:auto;display:block;
+  }
+  .ins-person-safe{filter:drop-shadow(0 6px 16px rgba(18,168,106,.3))}
+  .ins-person-unsafe{filter:drop-shadow(0 6px 16px rgba(232,138,60,.3))}
+  .ins-people-4 .ins-person{width:54px}
+
+  .ins-note{
+    margin-top:auto;position:relative;z-index:2;
+    padding:12px 16px;border-radius:8px;
+    font-size:10.5px;line-height:1.55;font-weight:500;
+  }
+  .ins-note-safe{
+    background:linear-gradient(135deg,#12a86a,#0d8a55);
+    color:#fff;
+    box-shadow:0 4px 16px rgba(18,168,106,.3);
+  }
+  .ins-note-unsafe{
+    background:linear-gradient(135deg,var(--amber),var(--amber-deep));
+    color:#fff;
+    box-shadow:0 4px 16px rgba(194,90,26,.3);
+  }
+  .ins-note b{font-weight:800;color:#fff}
+
+  .ins-conclusion{
+    background:linear-gradient(160deg,var(--surface),var(--ice) 60%,var(--surface-3));
+    border:1px solid var(--line-neon);border-radius:10px;
+    padding:18px 22px;margin-top:18px;
+    position:relative;overflow:hidden;
+    box-shadow:0 4px 20px rgba(46,168,255,.12);
+  }
+  .ins-conclusion::before{
+    content:"";position:absolute;top:-30%;right:-15%;
+    width:60%;height:160%;
+    background:radial-gradient(circle,rgba(46,168,255,.10),transparent 60%);
+    pointer-events:none;
+  }
+  .ins-conclusion .ic-tag{
+    font-size:9px;letter-spacing:4px;text-transform:uppercase;
+    color:var(--cobalt);font-weight:800;margin-bottom:9px;
+    position:relative;z-index:2;
+  }
+  .ins-conclusion .ic-text{
+    font-size:12px;line-height:1.65;color:var(--text-soft);
+    font-weight:400;position:relative;z-index:2;
+  }
+  .ins-conclusion .ic-text b{color:var(--cobalt);font-weight:700}
+
+  /* ============ ДОХОД ============ */
+  .income-bars{display:flex;flex-direction:column;gap:14px;margin:18px 0}
+  .income-row{
+    display:grid;grid-template-columns:160px 1fr 130px;
+    align-items:center;gap:18px;
+  }
+  .income-row .prod{
+    font-size:12.5px;font-weight:700;color:var(--text);letter-spacing:.3px;
+  }
+  .income-row .prod small{
+    display:block;font-size:9.5px;color:var(--text-muted);
+    font-weight:400;margin-top:4px;letter-spacing:1px;text-transform:uppercase;
+  }
+  .income-row .bar-track{
+    height:30px;background:var(--surface-3);
+    position:relative;overflow:hidden;
+    border:1px solid var(--line-soft);border-radius:6px;
+  }
+  .income-row .bar-fill{
+    position:absolute;top:0;left:0;bottom:0;
+    display:flex;align-items:center;justify-content:flex-end;
+    padding-right:14px;color:#fff;font-weight:700;font-size:10.5px;letter-spacing:.3px;
+    border-radius:6px;
+  }
+  .bar-osago{width:18%;background:linear-gradient(90deg,#0a4fa8,#1c72e0)}
+  .bar-kasko{width:66%;background:linear-gradient(90deg,#1c72e0,#2ea8ff)}
+  .bar-flat{width:15%;background:linear-gradient(90deg,#2ea8ff,#00d4e8)}
+  .bar-property{width:12%;background:linear-gradient(90deg,#00d4e8,#7a5cff)}
+  .bar-renewal{width:26%;background:linear-gradient(90deg,#7a5cff,#2ea8ff)}
+  .income-row .total{
+    font-size:15px;font-weight:800;text-align:right;
+    color:var(--cobalt-bright);letter-spacing:-.3px;
+  }
+
+  .total-panel{
+    display:grid;grid-template-columns:1fr auto;align-items:stretch;
+    margin-top:22px;border:1px solid var(--line-neon);
+    border-radius:10px;overflow:hidden;
+    box-shadow:0 8px 32px rgba(46,168,255,.15);
+  }
+  .total-panel .tp-left{background:var(--surface);padding:22px 26px}
+  .total-panel .tp-right{
+    background:linear-gradient(135deg,var(--cobalt-bright),var(--neon));
+    color:#fff;padding:22px 30px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .total-panel .tp-label{
+    font-size:9.5px;letter-spacing:4px;text-transform:uppercase;
+    color:var(--cobalt);margin-bottom:9px;font-weight:700;
+  }
+  .total-panel .tp-title{
+    font-size:14px;font-weight:600;line-height:1.5;color:var(--text-soft);
+  }
+  .total-panel .tp-num{
+    font-size:38px;font-weight:800;line-height:1;color:#fff;letter-spacing:-2px;
+  }
+  .total-panel .tp-num small{
+    display:block;font-size:10.5px;color:#fff;font-weight:600;
+    letter-spacing:2px;margin-top:9px;text-transform:uppercase;opacity:.9;
+  }
+
+  .nine-panel{
+    background:linear-gradient(135deg,var(--surface),var(--surface-2));
+    border:1px solid var(--line-neon);border-radius:10px;
+    padding:22px 26px;margin-top:22px;
+    display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center;
+    position:relative;overflow:hidden;
+  }
+  .nine-panel::before{
+    content:"";position:absolute;top:-20%;right:-10%;
+    width:60%;height:140%;
+    background:radial-gradient(circle,rgba(46,168,255,.15),transparent 60%);
+  }
+  .nine-panel .np-num{
+    font-size:120px;font-weight:800;line-height:.85;letter-spacing:-9px;
+    background:linear-gradient(135deg,var(--cobalt),var(--neon));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    -webkit-text-fill-color:transparent;position:relative;z-index:2;
+    filter:drop-shadow(0 4px 16px rgba(46,168,255,.3));
+  }
+  .nine-panel .np-content{position:relative;z-index:2}
+  .nine-panel .np-content h3{
+    font-size:18px;margin:0 0 11px;font-weight:800;
+    color:var(--text);line-height:1.3;letter-spacing:-.3px;
+  }
+  .nine-panel .np-content p{
+    font-size:12px;line-height:1.65;margin:0 0 9px;
+    color:var(--text-soft);font-weight:400;
+  }
+  .nine-panel .np-content p:last-child{margin-bottom:0}
+  .nine-panel .np-content b{color:var(--cobalt);font-weight:700}
+
+  .nine-facts{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:14px;margin-top:18px;
+  }
+  .nine-fact{
+    background:var(--surface);border:1px solid var(--line-soft);
+    border-top:3px solid var(--neon);border-radius:8px;
+    padding:18px 18px;
+    box-shadow:0 2px 12px rgba(46,168,255,.08);
+  }
+  .nine-fact .nf-num{
+    font-size:28px;font-weight:800;line-height:1;color:var(--cobalt-bright);
+    margin-bottom:11px;letter-spacing:-1px;
+  }
+  .nine-fact .nf-text{
+    font-size:10.5px;color:var(--text-soft);line-height:1.6;font-weight:400;
+  }
+  .nine-fact .nf-text b{color:var(--text);font-weight:700}
+
+  /* ============ ПАССИВНЫЙ ДОХОД ============ */
+  .passive-intro{
+    background:linear-gradient(135deg,rgba(46,168,255,.10),rgba(0,212,232,.05));
+    border:1px solid var(--line-neon-soft);
+    border-left:4px solid var(--neon);
+    border-radius:10px;padding:18px 22px;margin-bottom:18px;
+  }
+  .passive-intro .pi-tag{
+    font-size:9px;letter-spacing:4px;text-transform:uppercase;
+    color:var(--cobalt);font-weight:800;margin-bottom:9px;
+  }
+  .passive-intro .pi-title{
+    font-size:16px;font-weight:800;color:var(--text);
+    letter-spacing:-.3px;margin-bottom:9px;line-height:1.3;
+  }
+  .passive-intro .pi-lead{
+    font-size:12px;line-height:1.65;color:var(--text-soft);font-weight:400;
+  }
+  .passive-intro .pi-lead b{color:var(--cobalt);font-weight:700}
+
+  .passive-cycle{
+    background:linear-gradient(160deg,#ffffff 0%,#f0f7ff 100%);
+    border:1px solid var(--line-neon);border-radius:10px;
+    padding:16px 18px 12px;margin:14px 0;
+    box-shadow:0 8px 32px rgba(46,168,255,.15);
+    position:relative;overflow:hidden;
+  }
+  .passive-cycle::before{
+    content:"";position:absolute;top:-30%;right:-15%;
+    width:60%;height:160%;
+    background:radial-gradient(circle,rgba(46,168,255,.10),transparent 60%);
+    pointer-events:none;
+  }
+  .passive-cycle .pc-title{
+    text-align:center;font-size:10px;letter-spacing:4px;
+    text-transform:uppercase;color:var(--cobalt);font-weight:800;
+    margin-bottom:11px;position:relative;z-index:2;
+  }
+  .passive-cycle svg{
+    width:100%;height:auto;display:block;position:relative;z-index:2;
+  }
+
+  .passive-steps{
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    gap:13px;margin:14px 0;
+  }
+  .ps-card{
+    background:var(--surface);border:1px solid var(--line-soft);
+    border-top:3px solid var(--neon);border-radius:8px;
+    padding:15px 15px;
+    box-shadow:0 2px 12px rgba(46,168,255,.08);
+  }
+  .ps-card .ps-num{
+    font-size:10px;letter-spacing:3px;text-transform:uppercase;
+    color:var(--cobalt);font-weight:800;margin-bottom:9px;
+  }
+  .ps-card .ps-title{
+    font-size:12.5px;font-weight:800;color:var(--text);
+    letter-spacing:-.2px;margin-bottom:7px;line-height:1.3;
+  }
+  .ps-card .ps-text{
+    font-size:10.5px;line-height:1.55;color:var(--text-soft);font-weight:400;
+  }
+  .ps-card .ps-text b{color:var(--cobalt);font-weight:700}
+
+  .passive-math{
+    background:linear-gradient(160deg,var(--surface),var(--ice) 60%,var(--surface-3));
+    border:1px solid var(--line-neon);border-radius:10px;
+    padding:18px 22px;margin:14px 0;
+    position:relative;overflow:hidden;
+    box-shadow:0 4px 20px rgba(46,168,255,.12);
+  }
+  .passive-math::before{
+    content:"";position:absolute;top:-30%;right:-15%;
+    width:60%;height:160%;
+    background:radial-gradient(circle,rgba(46,168,255,.10),transparent 60%);
+    pointer-events:none;
+  }
+  .passive-math .pm-tag{
+    font-size:9px;letter-spacing:4px;text-transform:uppercase;
+    color:var(--cobalt);font-weight:800;margin-bottom:11px;
+    position:relative;z-index:2;
+  }
+  .passive-math .pm-rows{
+    display:flex;flex-direction:column;gap:6px;
+    position:relative;z-index:2;
+  }
+  .pm-row{
+    display:grid;grid-template-columns:auto 1fr auto;
+    gap:14px;align-items:center;
+    padding:7px 0;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .pm-row:last-child{border-bottom:none}
+  .pm-row .pmr-year{
+    font-size:10.5px;font-weight:800;color:var(--cobalt);
+    letter-spacing:.5px;min-width:86px;
+  }
+  .pm-row .pmr-desc{
+    font-size:10.5px;color:var(--text-soft);font-weight:500;
+  }
+  .pm-row .pmr-sum{
+    font-size:14px;font-weight:800;color:var(--cobalt-bright);
+    letter-spacing:-.3px;text-align:right;
+  }
+  .pm-row.peak .pmr-sum{
+    font-size:18px;
+    background:linear-gradient(135deg,var(--cobalt),var(--neon));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    -webkit-text-fill-color:transparent;
+  }
+
+  /* ============ ПОРТРЕТ + АНТИПОРТРЕТ ============ */
+  .duo-stage{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:18px;align-items:stretch;
+    margin-top:8px;
+  }
+  .duo-col{
+    border-radius:10px;padding:18px 16px;
+    position:relative;overflow:hidden;
+    display:flex;flex-direction:column;
+  }
+  .duo-col.good{
+    background:linear-gradient(160deg,#ffffff 0%,#eaf2ff 60%,#c9e2ff 100%);
+    border:1px solid var(--line-neon);
+    box-shadow:0 8px 40px rgba(46,168,255,.18);
+  }
+  .duo-col.bad{
+    background:linear-gradient(160deg,#ffffff 0%,#fff2e0 60%,#ffe0bd 100%);
+    border:1px solid var(--amber-bright);
+    box-shadow:0 8px 40px rgba(232,138,60,.18);
+  }
+  .duo-col::before{
+    content:"";position:absolute;top:-30%;right:-30%;
+    width:100%;height:100%;
+    background:radial-gradient(circle,rgba(46,168,255,.18),transparent 60%);
+    pointer-events:none;
+  }
+  .duo-col.bad::before{
+    background:radial-gradient(circle,rgba(232,138,60,.20),transparent 60%);
+  }
+  .duo-head{
+    text-align:center;position:relative;z-index:2;
+    margin-bottom:9px;
+  }
+  .duo-head .duo-tag{
+    font-size:8.5px;letter-spacing:4px;text-transform:uppercase;
+    font-weight:800;margin-bottom:5px;
+  }
+  .duo-col.good .duo-tag{color:var(--cobalt)}
+  .duo-col.bad .duo-tag{color:var(--amber-deep)}
+  .duo-head .duo-title{
+    font-size:15px;font-weight:800;letter-spacing:-.3px;
+    line-height:1.2;
+  }
+  .duo-col.good .duo-title{color:var(--text)}
+  .duo-col.bad .duo-title{color:var(--amber-text)}
+
+  .duo-silhouette{
+    display:flex;justify-content:center;align-items:center;
+    padding:8px 0;position:relative;z-index:2;
+    min-height:220px;
+  }
+  .duo-silhouette svg{max-width:220px;width:100%;height:auto;display:block}
+  .duo-col.good .duo-silhouette svg{filter:drop-shadow(0 8px 24px rgba(46,168,255,.35))}
+  .duo-col.bad .duo-silhouette svg{filter:drop-shadow(0 8px 24px rgba(232,138,60,.35))}
+
+  .duo-badges{
+    display:flex;flex-direction:column;gap:6px;
+    margin-top:8px;position:relative;z-index:2;
+  }
+  .duo-badge{
+    background:rgba(255,255,255,.92);
+    border-radius:8px;padding:8px 12px;
+  }
+  .duo-col.good .duo-badge{
+    border:1px solid var(--line-neon-soft);
+    border-left:2px solid var(--neon);
+  }
+  .duo-col.bad .duo-badge{
+    border:1px solid var(--amber-line);
+    border-left:2px solid var(--amber-bright);
+  }
+  .duo-badge .db-who{
+    font-size:7.5px;letter-spacing:3px;text-transform:uppercase;
+    font-weight:800;margin-bottom:3px;
+    display:flex;align-items:center;gap:6px;
+  }
+  .duo-col.good .db-who{color:var(--cobalt)}
+  .duo-col.bad .db-who{color:var(--amber-deep)}
+  .duo-badge .db-who::before{
+    content:"";width:3.5px;height:3.5px;border-radius:50%;flex:none;
+  }
+  .duo-col.good .db-who::before{
+    background:var(--neon);box-shadow:0 0 8px var(--neon-glow);
+  }
+  .duo-col.bad .db-who::before{
+    background:var(--amber-bright);box-shadow:0 0 8px var(--amber-glow);
+  }
+  .duo-badge .db-quote{
+    font-size:9.5px;line-height:1.45;font-weight:500;
+  }
+  .duo-col.good .db-quote{color:var(--text)}
+  .duo-col.bad .db-quote{color:var(--amber-text)}
+  .duo-badge .db-quote b{font-weight:800}
+  .duo-col.good .db-quote b{color:var(--cobalt)}
+  .duo-col.bad .db-quote b{color:var(--amber-deep)}
+
+  .duo-salary{
+    margin-top:auto;padding:12px 14px;
+    border-radius:8px;text-align:center;
+    position:relative;z-index:2;
+  }
+  .duo-col.good .duo-salary{
+    background:linear-gradient(135deg,var(--cobalt-bright),var(--neon));
+    color:#fff;
+    box-shadow:0 6px 24px rgba(28,114,224,.3);
+  }
+  .duo-col.bad .duo-salary{
+    background:linear-gradient(135deg,var(--amber),var(--amber-bright));
+    color:#fff;
+    box-shadow:0 6px 24px rgba(194,90,26,.3);
+  }
+  .duo-salary .ds-label{
+    font-size:8px;letter-spacing:3px;text-transform:uppercase;
+    font-weight:800;opacity:.9;margin-bottom:5px;
+  }
+  .duo-salary .ds-num{
+    font-size:20px;font-weight:800;line-height:1;letter-spacing:-1px;
+  }
+  .duo-salary .ds-note{
+    font-size:9px;font-weight:600;opacity:.9;margin-top:5px;
+    letter-spacing:.3px;
+  }
+
+  /* ============ ПОДВОДКА: КЛИЕНТЫ ============ */
+  .audience-panel{
+    background:linear-gradient(160deg,var(--surface),var(--ice) 60%,var(--surface-3));
+    border:1px solid var(--line-neon);border-radius:10px;
+    padding:22px 26px;margin:10px 0 18px;
+    position:relative;overflow:hidden;
+    box-shadow:0 8px 32px rgba(46,168,255,.12);
+    text-align:center;
+  }
+  .audience-panel::before{
+    content:"";position:absolute;top:-30%;right:-20%;
+    width:70%;height:160%;
+    background:radial-gradient(circle,rgba(46,168,255,.14),transparent 60%);
+    pointer-events:none;
+  }
+  .audience-panel .ap-tag{
+    font-size:9px;letter-spacing:5px;text-transform:uppercase;
+    color:var(--cobalt);font-weight:800;margin-bottom:13px;
+    position:relative;z-index:2;
+  }
+  .audience-panel .ap-title{
+    font-size:20px;line-height:1.3;font-weight:800;
+    color:var(--text);letter-spacing:-.5px;margin-bottom:14px;
+    position:relative;z-index:2;
+  }
+  .audience-panel .ap-title .ap-accent{
+    background:linear-gradient(135deg,var(--cobalt),var(--neon));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    -webkit-text-fill-color:transparent;
+  }
+  .audience-panel .ap-lead{
+    font-size:12px;line-height:1.65;color:var(--text-soft);
+    max-width:560px;margin:0 auto;font-weight:400;
+    position:relative;z-index:2;
+  }
+  .audience-panel .ap-lead b{color:var(--cobalt);font-weight:700}
+
+  .audience-grid{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:13px;margin:18px 0;
+  }
+  .au-item{
+    background:var(--surface);border:1px solid var(--line-soft);
+    border-left:4px solid var(--neon);border-radius:8px;
+    padding:15px 18px;display:flex;gap:14px;align-items:flex-start;
+    box-shadow:0 2px 12px rgba(46,168,255,.06);
+  }
+  .au-item .au-num{
+    flex:none;font-size:22px;font-weight:800;line-height:1;
+    background:linear-gradient(135deg,var(--cobalt),var(--neon));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    -webkit-text-fill-color:transparent;letter-spacing:-1px;
+    min-width:66px;
+  }
+  .au-item .au-body{flex:1}
+  .au-item .au-title{
+    font-size:12px;font-weight:800;color:var(--text);
+    margin:0 0 5px;letter-spacing:-.2px;
+  }
+  .au-item .au-text{
+    font-size:10.5px;line-height:1.55;color:var(--text-soft);font-weight:400;
+  }
+  .au-item .au-text b{color:var(--cobalt);font-weight:700}
+
+  .audience-problem{
+    margin-top:18px;
+    background:linear-gradient(135deg,rgba(46,168,255,.10),rgba(0,212,232,.05));
+    border:1px solid var(--line-neon-soft);
+    border-left:4px solid var(--neon);
+    border-radius:10px;padding:20px 24px;
+    position:relative;overflow:hidden;
+  }
+  .audience-problem::before{
+    content:"";position:absolute;top:-40%;right:-15%;
+    width:60%;height:180%;
+    background:radial-gradient(circle,rgba(46,168,255,.08),transparent 60%);
+    pointer-events:none;
+  }
+  .audience-problem .apb-tag{
+    font-size:9px;letter-spacing:4px;text-transform:uppercase;
+    color:var(--cobalt);font-weight:800;margin-bottom:11px;
+    position:relative;z-index:2;
+  }
+  .audience-problem .apb-title{
+    font-size:17px;font-weight:800;color:var(--text);
+    line-height:1.3;margin-bottom:11px;letter-spacing:-.4px;
+    position:relative;z-index:2;
+  }
+  .audience-problem .apb-text{
+    font-size:12px;line-height:1.65;color:var(--text-soft);
+    font-weight:400;position:relative;z-index:2;
+  }
+  .audience-problem .apb-text b{color:var(--cobalt);font-weight:700}
+
+  /* ============ САРАФАН ============ */
+  .referral-intro{
+    background:linear-gradient(135deg,rgba(46,168,255,.10),rgba(0,212,232,.05));
+    border:1px solid var(--line-neon-soft);
+    border-left:4px solid var(--neon);
+    border-radius:10px;padding:18px 22px;margin-bottom:14px;
+  }
+  .referral-intro .ri-tag{
+    font-size:9px;letter-spacing:4px;text-transform:uppercase;
+    color:var(--cobalt);font-weight:800;margin-bottom:9px;
+  }
+  .referral-intro .ri-title{
+    font-size:16px;font-weight:800;color:var(--text);
+    letter-spacing:-.3px;margin-bottom:9px;line-height:1.3;
+  }
+  .referral-intro .ri-lead{
+    font-size:11.5px;line-height:1.65;color:var(--text-soft);font-weight:400;
+  }
+  .referral-intro .ri-lead b{color:var(--cobalt);font-weight:700}
+
+  .referral-map{
+    background:linear-gradient(160deg,#ffffff 0%,#f0f7ff 100%);
+    border:1px solid var(--line-neon);border-radius:10px;
+    padding:14px 14px;margin:14px 0;
+    box-shadow:0 8px 32px rgba(46,168,255,.15);
+    position:relative;overflow:hidden;
+  }
+  .referral-map::before{
+    content:"";position:absolute;top:-30%;right:-15%;
+    width:60%;height:160%;
+    background:radial-gradient(circle,rgba(46,168,255,.10),transparent 60%);
+    pointer-events:none;
+  }
+  .referral-map svg{
+    width:100%;height:auto;display:block;position:relative;z-index:2;
+  }
+
+  .growth-networks{
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    gap:13px;margin-top:14px;
+    position:relative;z-index:2;
+  }
+  .gn-card{
+    background:var(--surface);border:1px solid var(--line-soft);
+    border-radius:8px;padding:13px 12px;text-align:center;
+    box-shadow:0 2px 12px rgba(46,168,255,.08);
+    position:relative;overflow:hidden;
+  }
+  .gn-card::before{
+    content:"";position:absolute;top:-30%;right:-20%;
+    width:70%;height:160%;
+    background:radial-gradient(circle,rgba(46,168,255,.08),transparent 60%);
+    pointer-events:none;
+  }
+  .gn-card .gn-tag{
+    font-size:8px;letter-spacing:3px;text-transform:uppercase;
+    color:var(--cobalt);font-weight:800;margin-bottom:7px;
+    position:relative;z-index:2;
+  }
+  .gn-card .gn-svg{
+    width:100%;max-width:120px;height:auto;display:block;
+    margin:0 auto 7px;position:relative;z-index:2;
+  }
+  .gn-card .gn-num{
+    font-size:17px;font-weight:800;line-height:1;
+    color:var(--cobalt-bright);letter-spacing:-.5px;
+    margin-bottom:5px;position:relative;z-index:2;
+  }
+  .gn-card .gn-note{
+    font-size:9px;line-height:1.4;color:var(--text-soft);
+    font-weight:500;position:relative;z-index:2;
+  }
+
+  .referral-why{
+    background:linear-gradient(160deg,var(--surface),var(--ice) 60%,var(--surface-3));
+    border:1px solid var(--line-neon);border-radius:10px;
+    padding:18px 22px;margin:18px 0;
+    position:relative;overflow:hidden;
+    box-shadow:0 4px 20px rgba(46,168,255,.12);
+  }
+  .referral-why::before{
+    content:"";position:absolute;top:-30%;right:-15%;
+    width:60%;height:160%;
+    background:radial-gradient(circle,rgba(46,168,255,.10),transparent 60%);
+    pointer-events:none;
+  }
+  .referral-why .rw-tag{
+    font-size:9px;letter-spacing:4px;text-transform:uppercase;
+    color:var(--cobalt);font-weight:800;margin-bottom:9px;
+    position:relative;z-index:2;
+  }
+  .referral-why .rw-text{
+    font-size:11.5px;line-height:1.65;color:var(--text-soft);
+    font-weight:400;position:relative;z-index:2;
+  }
+  .referral-why .rw-text b{color:var(--cobalt);font-weight:700}
+
+  /* ============ ВОРОНКА ============ */
+  .funnel-people{margin:14px 0}
+  .fp-stage{
+    background:var(--surface);border:1px solid var(--line-soft);
+    border-radius:10px;padding:15px 20px;margin-bottom:10px;
+    box-shadow:0 2px 12px rgba(46,168,255,.06);
+  }
+  .fp-stage.fp-final{
+    background:linear-gradient(135deg,var(--cobalt-bright),var(--neon));
+    border-color:var(--neon);
+    box-shadow:0 6px 24px rgba(28,114,224,.28);
+  }
+  .fp-head{
+    display:flex;align-items:baseline;gap:14px;margin-bottom:10px;
+    flex-wrap:wrap;
+  }
+  .fp-head .fp-num{
+    font-size:24px;font-weight:800;line-height:1;
+    color:var(--cobalt-bright);letter-spacing:-1px;
+  }
+  .fp-stage.fp-final .fp-head .fp-num{color:#fff}
+  .fp-head .fp-label{
+    font-size:10.5px;line-height:1.45;color:var(--text-soft);font-weight:400;
+  }
+  .fp-stage.fp-final .fp-head .fp-label{color:#fff;font-weight:600}
+  .fp-head .fp-label b{color:var(--text);font-weight:700}
+  .fp-stage.fp-final .fp-head .fp-label b{color:#fff;font-weight:800}
+  .fp-people{display:flex;flex-wrap:wrap;gap:5px;align-items:flex-end}
+  .fp-person{width:24px;height:auto;display:block}
+  .fp-arrow{
+    text-align:center;color:var(--neon);font-size:13px;
+    margin:2px 0;font-weight:800;
+  }
+  .fp-stage .fp-note{
+    font-size:9.5px;color:var(--text-muted);margin-top:9px;
+    letter-spacing:.8px;font-weight:400;
+  }
+  .fp-stage.fp-final .fp-note{color:rgba(255,255,255,.85);font-weight:600}
+
+  /* ============ WHY BLOCK ============ */
+  .why-block{
+    background:var(--surface);border:1px solid var(--line-soft);
+    border-left:3px solid var(--neon);border-radius:8px;
+    padding:18px 22px;margin:18px 0;
+    box-shadow:0 2px 12px rgba(46,168,255,.06);
+  }
+  .why-block h3{
+    margin:0 0 11px;font-size:12.5px;font-weight:800;
+    color:var(--cobalt);letter-spacing:.3px;text-transform:uppercase;
+    display:flex;align-items:center;gap:10px;
+  }
+  .why-block h3::before{
+    content:"";width:7px;height:7px;background:var(--neon);
+    border-radius:50%;box-shadow:0 0 10px var(--neon-glow);flex:none;
+  }
+  .why-block p{
+    margin:0 0 11px;font-size:12px;line-height:1.65;
+    color:var(--text-soft);font-weight:400;
+  }
+  .why-block p:last-child{margin-bottom:0}
+  .why-block b{color:var(--text);font-weight:700}
+
+  /* ============ ФИЛОСОФИЯ ============ */
+  .philosophy-panel{
+    background:linear-gradient(160deg,var(--surface),var(--ice) 60%,var(--surface-3));
+    border:1px solid var(--line-neon);border-radius:10px;
+    padding:28px 26px;margin:22px 0;position:relative;
+    box-shadow:0 8px 40px rgba(46,168,255,.12);overflow:hidden;
+  }
+  .philosophy-panel::before{
+    content:"";position:absolute;top:-30%;right:-20%;
+    width:70%;height:160%;
+    background:radial-gradient(circle,rgba(46,168,255,.12),transparent 55%);
+  }
+  .philosophy-panel .ph-tag{
+    font-size:9px;letter-spacing:5px;text-transform:uppercase;
+    color:var(--cobalt);font-weight:800;margin-bottom:18px;
+    text-align:center;position:relative;z-index:2;
+  }
+  .philosophy-panel h3{
+    font-size:20px;line-height:1.3;margin:0 0 18px;
+    font-weight:800;color:var(--text);text-align:center;
+    letter-spacing:-.5px;position:relative;z-index:2;
+  }
+  .philosophy-panel h3 .coral{
+    background:linear-gradient(135deg,var(--cobalt),var(--neon));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    -webkit-text-fill-color:transparent;
+  }
+  .philosophy-panel .ph-lead{
+    font-size:12px;line-height:1.7;color:var(--text-soft);
+    margin:0 0 22px;text-align:center;font-weight:400;
+    max-width:600px;margin-left:auto;margin-right:auto;
+    position:relative;z-index:2;
+  }
+  .philosophy-panel .ph-lead b{color:var(--cobalt);font-weight:700}
+  .ph-compare{
+    display:grid;grid-template-columns:1fr 1fr;gap:14px;
+    margin:22px 0;position:relative;z-index:2;
+  }
+  .ph-side{
+    padding:18px 18px;border-radius:8px;
+  }
+  .ph-side.bad{
+    background:var(--surface-2);border:1px solid var(--line-soft);
+    border-left:3px solid var(--text-faint);
+  }
+  .ph-side.good{
+    background:linear-gradient(135deg,var(--ice),var(--surface-3));
+    border:1px solid var(--line-neon-soft);border-left:3px solid var(--neon);
+    box-shadow:0 4px 20px rgba(46,168,255,.12);
+  }
+  .ph-side .ph-side-title{
+    font-size:9.5px;letter-spacing:4px;text-transform:uppercase;
+    font-weight:800;margin-bottom:11px;
+  }
+  .ph-side.bad .ph-side-title{color:var(--text-muted)}
+  .ph-side.good .ph-side-title{color:var(--cobalt)}
+  .ph-side p{
+    font-size:11px;line-height:1.6;color:var(--text-soft);
+    margin:0 0 8px;font-weight:400;
+  }
+  .ph-side p:last-child{margin-bottom:0}
+  .ph-side b{color:var(--text);font-weight:700}
+  .ph-quote{
+    background:linear-gradient(135deg,rgba(46,168,255,.12),rgba(0,212,232,.06));
+    border:1px solid var(--line-neon-soft);border-radius:8px;
+    padding:20px 22px;margin-top:18px;
+    font-size:13.5px;line-height:1.6;color:var(--text);
+    text-align:center;font-weight:600;position:relative;z-index:2;
+  }
+  .ph-quote::before{
+    content:"ФОРМУЛА";display:block;font-size:9px;
+    letter-spacing:4px;color:var(--cobalt);font-weight:800;margin-bottom:11px;
+  }
+  .ph-quote b{
+    background:linear-gradient(135deg,var(--cobalt),var(--neon));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    -webkit-text-fill-color:transparent;font-weight:800;
+  }
+
+  /* ============ ТЫ НУЖЕН ЛЮДЯМ ============ */
+  .need-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:14px;
+    margin:18px 0;
+  }
+  .need-card{
+    background:var(--surface);
+    border:1px solid var(--line-soft);
+    border-top:3px solid #a8d4ff;
+    border-radius:10px;
+    padding:16px 12px 18px;
+    text-align:center;
+    position:relative;overflow:hidden;
+    box-shadow:0 2px 14px rgba(46,168,255,.06);
+    display:flex;flex-direction:column;align-items:center;
+  }
+  .need-card::before{
+    content:"";position:absolute;top:-30%;right:-20%;
+    width:70%;height:160%;
+    background:radial-gradient(circle,rgba(46,168,255,.06),transparent 60%);
+    pointer-events:none;
+  }
+  .need-card .need-svg{
+    width:100%;max-width:110px;
+    margin:0 auto 10px;
+    position:relative;z-index:2;
+  }
+  .need-card .need-svg svg{
+    width:100%;height:auto;display:block;
+  }
+  .need-card .need-name{
+    font-size:13px;font-weight:800;
+    color:var(--text);letter-spacing:-.2px;
+    margin:0 0 6px;position:relative;z-index:2;
+  }
+  .need-card .need-desc{
+    font-size:10px;line-height:1.5;
+    color:var(--text-soft);font-weight:400;
+    position:relative;z-index:2;
+  }
+
+  .need-card-main{
+    background:linear-gradient(160deg,#ffffff 0%,#eaf2ff 55%,#c9e2ff 100%);
+    border:2px solid var(--neon);
+    border-top:3px solid var(--cobalt-bright);
+    box-shadow:0 12px 44px rgba(46,168,255,.32);
+    transform:scale(1.02);
+  }
+  .need-card-main::before{
+    background:radial-gradient(circle,rgba(46,168,255,.22),transparent 60%);
+  }
+  .need-card-main .need-svg{
+    max-width:128px;
+  }
+  .need-card-main .need-name-main{
+    font-size:14.5px;font-weight:800;
+    letter-spacing:-.3px;
+    background:linear-gradient(135deg,var(--cobalt),var(--neon));
+    -webkit-background-clip:text;background-clip:text;
+    color:transparent;-webkit-text-fill-color:transparent;
+    margin:0 0 6px;position:relative;z-index:2;
+  }
+  .need-card-main .need-desc-main{
+    font-size:10px;line-height:1.55;
+    color:var(--text-soft);font-weight:400;
+    position:relative;z-index:2;
+  }
+  .need-card-main .need-desc-main b{
+    color:var(--cobalt);font-weight:700;
+  }
+  .need-badge{
+    position:absolute;top:10px;right:10px;
+    font-size:8px;letter-spacing:3px;
+    text-transform:uppercase;font-weight:800;
+    background:linear-gradient(135deg,var(--cobalt-bright),var(--neon));
+    color:#fff;
+    padding:3px 8px;border-radius:5px;
+    box-shadow:0 3px 10px rgba(28,114,224,.4);
+    z-index:3;
+  }
+
+  .need-conclusion{
+    background:linear-gradient(160deg,var(--surface),var(--ice) 60%,var(--surface-3));
+    border:1px solid var(--line-neon);
+    border-radius:10px;
+    padding:18px 22px;margin-top:18px;
+    position:relative;overflow:hidden;
+    box-shadow:0 4px 20px rgba(46,168,255,.12);
+  }
+  .need-conclusion::before{
+    content:"";position:absolute;top:-30%;right:-15%;
+    width:60%;height:160%;
+    background:radial-gradient(circle,rgba(46,168,255,.10),transparent 60%);
+    pointer-events:none;
+  }
+  .need-conclusion .nc-tag{
+    font-size:9px;letter-spacing:4px;text-transform:uppercase;
+    color:var(--cobalt);font-weight:800;margin-bottom:9px;
+    position:relative;z-index:2;
+  }
+  .need-conclusion .nc-text{
+    font-size:12px;line-height:1.65;color:var(--text-soft);
+    font-weight:400;position:relative;z-index:2;
+  }
+  .need-conclusion .nc-text b{color:var(--cobalt);font-weight:700}
+
+  /* ============ ЛЕСТНИЦА ============ */
+  .stairs-panel{
+    background:linear-gradient(160deg,var(--surface),var(--ice) 60%,var(--surface-3));
+    border:1px solid var(--line-neon);border-radius:10px;
+    padding:22px 22px;margin:14px 0;
+    position:relative;overflow:hidden;
+    box-shadow:0 8px 40px rgba(46,168,255,.15);
+  }
+  .stairs-panel::before{
+    content:"";position:absolute;top:-30%;right:-20%;
+    width:70%;height:160%;
+    background:radial-gradient(circle,rgba(46,168,255,.10),transparent 60%);
+    pointer-events:none;
+  }
+  .stairs-panel .sp-title{
+    text-align:center;font-size:10.5px;letter-spacing:4px;
+    text-transform:uppercase;color:var(--cobalt);font-weight:800;
+    margin-bottom:14px;position:relative;z-index:2;
+  }
+  .stairs-panel svg{
+    width:100%;height:auto;display:block;position:relative;z-index:2;
+  }
+
+  .level-legend{
+    display:grid;grid-template-columns:1fr 1fr 1fr 1fr;
+    gap:10px;margin-top:18px;
+    position:relative;z-index:2;
+  }
+  .level-card{
+    background:var(--surface);border:1px solid var(--line-soft);
+    border-top:3px solid var(--neon);border-radius:8px;
+    padding:13px 13px;
+    box-shadow:0 2px 12px rgba(46,168,255,.06);
+    text-align:center;
+  }
+  .level-card.l1{border-top-color:#9ec3ec}
+  .level-card.l2{border-top-color:var(--neon)}
+  .level-card.l3{border-top-color:var(--cobalt-bright)}
+  .level-card.l4{border-top-color:var(--cobalt)}
+  .level-card .lc-name{
+    font-size:8.5px;letter-spacing:3px;text-transform:uppercase;
+    color:var(--text-muted);font-weight:800;margin-bottom:7px;
+  }
+  .level-card .lc-sum{
+    font-size:17px;font-weight:800;line-height:1;
+    color:var(--cobalt-bright);letter-spacing:-.5px;
+    margin-bottom:7px;
+  }
+  .level-card.l1 .lc-sum{color:#4a7fc0}
+  .level-card.l4 .lc-sum{
+    background:linear-gradient(135deg,var(--cobalt),var(--neon));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    -webkit-text-fill-color:transparent;
+  }
+  .level-card .lc-note{
+    font-size:8.5px;line-height:1.4;color:var(--text-soft);font-weight:500;
+  }
+
+  /* ============ КАРЬЕРНЫЙ РОСТ ============ */
+  .career-grid{
+    display:grid;grid-template-columns:1.15fr 1fr;
+    gap:18px;align-items:stretch;
+    margin:16px 0;
+  }
+  .career-hero{
+    background:linear-gradient(160deg,#ffffff 0%,#eaf2ff 60%,#c9e2ff 100%);
+    border:1px solid var(--line-neon);
+    border-radius:12px;
+    padding:20px 18px;
+    position:relative;overflow:hidden;
+    box-shadow:0 10px 40px rgba(46,168,255,.22);
+    display:flex;flex-direction:column;
+  }
+  .career-hero::before{
+    content:"";position:absolute;top:-30%;right:-25%;
+    width:80%;height:160%;
+    background:radial-gradient(circle,rgba(46,168,255,.16),transparent 60%);
+    pointer-events:none;
+  }
+  .career-hero .ch-tag{
+    font-size:9px;letter-spacing:4px;text-transform:uppercase;
+    color:var(--cobalt);font-weight:800;margin-bottom:8px;
+    text-align:center;position:relative;z-index:2;
+  }
+  .career-hero .ch-name{
+    font-size:16px;font-weight:800;letter-spacing:-.3px;
+    background:linear-gradient(135deg,var(--cobalt),var(--neon));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    -webkit-text-fill-color:transparent;
+    text-align:center;margin:0 0 10px;position:relative;z-index:2;
+  }
+  .career-hero .ch-art{
+    display:flex;justify-content:center;align-items:center;
+    flex:1;position:relative;z-index:2;
+  }
+  .career-hero .ch-art svg{
+    width:100%;max-width:230px;height:auto;display:block;
+    filter:drop-shadow(0 10px 28px rgba(46,168,255,.35));
+  }
+  .career-hero .ch-note{
+    font-size:10.5px;line-height:1.55;color:var(--text-soft);
+    text-align:center;margin-top:12px;position:relative;z-index:2;
+    font-weight:500;
+  }
+  .career-hero .ch-note b{color:var(--cobalt);font-weight:700}
+
+  .career-steps{
+    display:flex;flex-direction:column;gap:10px;
+  }
+  .career-step{
+    background:var(--surface);
+    border:1px solid var(--line-soft);
+    border-left:4px solid var(--neon);
+    border-radius:8px;
+    padding:12px 14px;
+    box-shadow:0 2px 12px rgba(46,168,255,.06);
+    position:relative;
+  }
+  .career-step .cs-head{
+    display:flex;align-items:baseline;gap:10px;margin-bottom:6px;
+  }
+  .career-step .cs-num{
+    font-size:11px;font-weight:800;letter-spacing:2px;
+    color:var(--cobalt);
+    background:var(--ice);
+    padding:2px 8px;border-radius:4px;
+    border:1px solid var(--line-neon-soft);
+  }
+  .career-step .cs-title{
+    font-size:12.5px;font-weight:800;color:var(--text);
+    letter-spacing:-.2px;line-height:1.2;
+  }
+  .career-step .cs-text{
+    font-size:10.5px;line-height:1.55;color:var(--text-soft);
+  }
+  .career-step .cs-text b{color:var(--cobalt);font-weight:700}
+  .career-step.cs-final{
+    background:linear-gradient(135deg,var(--cobalt-bright),var(--neon));
+    border-color:var(--neon);
+    border-left-color:#ffffff;
+    box-shadow:0 6px 24px rgba(28,114,224,.28);
+    color:#fff;
+  }
+  .career-step.cs-final .cs-title{color:#fff}
+  .career-step.cs-final .cs-text{color:rgba(255,255,255,.92)}
+  .career-step.cs-final .cs-text b{color:#fff;font-weight:800}
+  .career-step.cs-final .cs-num{
+    background:rgba(255,255,255,.18);
+    color:#fff;border-color:rgba(255,255,255,.4);
+  }
+
+  .team-panel{
+    background:linear-gradient(160deg,#ffffff 0%,#f0f7ff 100%);
+    border:1px solid var(--line-neon);
+    border-radius:12px;
+    padding:16px 18px 18px;
+    margin:14px 0;
+    box-shadow:0 8px 32px rgba(46,168,255,.15);
+    position:relative;overflow:hidden;
+  }
+  .team-panel::before{
+    content:"";position:absolute;top:-30%;right:-15%;
+    width:60%;height:160%;
+    background:radial-gradient(circle,rgba(46,168,255,.10),transparent 60%);
+    pointer-events:none;
+  }
+  .team-panel .tp-title{
+    text-align:center;font-size:10px;letter-spacing:4px;
+    text-transform:uppercase;color:var(--cobalt);font-weight:800;
+    margin-bottom:10px;position:relative;z-index:2;
+  }
+  .team-panel svg{
+    width:100%;height:auto;display:block;position:relative;z-index:2;
+  }
+  .team-caption{
+    text-align:center;
+    font-size:10.5px;line-height:1.6;color:var(--text-soft);
+    margin-top:12px;position:relative;z-index:2;
+  }
+  .team-caption b{color:var(--cobalt);font-weight:700}
+
+  /* ============ ФИНАЛ ============ */
+  .final-punch{
+    margin-top:18px;
+    background:linear-gradient(135deg,var(--cobalt-bright),var(--neon));
+    color:#fff;border-radius:10px;padding:22px 26px;
+    text-align:center;
+    box-shadow:0 8px 40px rgba(28,114,224,.3);
+    position:relative;overflow:hidden;
+  }
+  .final-punch::before{
+    content:"";position:absolute;top:-50%;right:-20%;
+    width:80%;height:200%;
+    background:radial-gradient(circle,rgba(255,255,255,.18),transparent 60%);
+    pointer-events:none;
+  }
+  .final-punch .fp-tag{
+    font-size:9px;letter-spacing:4px;text-transform:uppercase;
+    font-weight:800;opacity:.9;margin-bottom:9px;
+    position:relative;z-index:2;
+  }
+  .final-punch .fp-quote{
+    font-size:16px;line-height:1.45;font-weight:700;
+    position:relative;z-index:2;letter-spacing:-.2px;
+  }
+  .final-punch .fp-quote b{font-weight:800}
+
+  .page-footer{
+    margin-top:auto;padding-top:18px;
+    border-top:1px solid var(--line-soft);
+    font-size:9.5px;color:var(--text-muted);
+    letter-spacing:3px;text-transform:uppercase;
+    text-align:center;line-height:1.8;font-weight:700;
+    flex:none;
+  }
+
+  /* ============ АДАПТИВ ============ */
+  @media (max-width: 820px){
+    #scaleWrap{ padding:0; }
+    .page{
+      width:100% !important;
+      min-height:auto !important;
+      margin:0 0 2px 0;
+      border-radius:0;
+      box-shadow:none;
+    }
+    .page-inner, .cover-inner{
+      padding:28px 18px !important;
+      min-height:auto !important;
+    }
+    .cover{ min-height:auto !important; }
+    .cover h1{ font-size:28px; letter-spacing:-1px; }
+    .cover .sub{ font-size:13px; }
+    .cover-hero{ grid-template-columns:1fr; gap:18px; }
+    .cover-hero-art svg{ max-width:260px; }
+    .cover-hero-text .ch-claim{ font-size:15px; }
+    .cover-kpi{ grid-template-columns:1fr; gap:14px; }
+    .cover-kpi-card{ border-right:none; border-bottom:1px solid var(--line-mid); padding:0 0 14px; }
+    .cover-kpi-card:last-child{ border-bottom:none; }
+    .cover-footer{ flex-direction:column; gap:6px; text-align:center; }
+
+    h2.big-title{ font-size:22px; }
+    .subtitle{ font-size:12px; }
+
+    .what-grid,
+    .ins-compare,
+    .duo-stage,
+    .audience-grid,
+    .ph-compare,
+    .growth-networks,
+    .passive-steps,
+    .nine-facts,
+    .level-legend,
+    .career-grid{
+      grid-template-columns:1fr !important;
+    }
+    .need-grid{ grid-template-columns:1fr 1fr; }
+    .need-card-main{ transform:none; }
+    .income-row{
+      grid-template-columns:1fr !important;
+      gap:6px;
+    }
+    .income-row .total{ text-align:left; }
+    .total-panel{ grid-template-columns:1fr !important; }
+    .nine-panel{ grid-template-columns:1fr !important; }
+    .nine-panel .np-num{ font-size:72px; letter-spacing:-4px; }
+    .pm-row{ grid-template-columns:1fr auto !important; }
+    .pm-row .pmr-desc{ grid-column:1 / -1; }
+    .fp-head{ flex-direction:column; gap:4px; }
+    .fp-head .fp-num{ font-size:20px; }
+    .duo-silhouette{ min-height:160px; }
+    .duo-silhouette svg{ max-width:160px; }
+    .passive-cycle svg{ max-height:none; }
+    .referral-map svg{ max-height:none; }
+    .stairs-panel svg{ max-height:none; }
+    .ins-people .ins-person{ width:60px; }
+    .ins-people-4 .ins-person{ width:44px; }
+    .career-hero .ch-art svg{ max-width:200px; }
+  }
+
+  @media (max-width: 480px){
+    .cover h1{ font-size:22px; }
+    h2.big-title{ font-size:19px; }
+    .what-card, .how-step, .why-block, .ins-intro, .ins-conclusion,
+    .passive-intro, .passive-math, .referral-intro, .referral-why,
+    .audience-panel, .audience-problem, .philosophy-panel,
+    .stairs-panel, .nine-panel, .total-panel, .ins-col,
+    .need-conclusion, .career-hero{
+      padding:14px 14px !important;
+    }
+    .need-grid{ grid-template-columns:1fr; }
+    .need-card .need-svg{ max-width:96px; }
+    .need-card-main .need-svg{ max-width:112px; }
+    .cover-hero-art svg{ max-width:220px; }
+  }
+
+  /* ============ ПЕЧАТЬ ============ */
+  @page{
+    size:A4;
+    margin:0;
+  }
+
+  @media print{
+    html,body{
+      background:#fff;
+      width:var(--page-w);
+      margin:0;
+      padding:0;
+      -webkit-print-color-adjust:exact;
+      print-color-adjust:exact;
+    }
+    #scaleWrap{ padding:0; display:block; }
+    .page{
+      width:var(--page-w);
+      min-height:var(--page-h);
+      height:auto;
+      margin:0;
+      box-shadow:none;
+      page-break-after:always;
+      break-after:page;
+      overflow:visible;
+      display:block;
+      border-radius:0;
+    }
+    .page:last-child{
+      page-break-after:auto;
+      break-after:auto;
+    }
+    .page-inner, .cover-inner{
+      padding:var(--page-pad-y) var(--page-pad-x);
+      min-height:var(--page-h);
+      height:auto;
+      overflow:visible;
+      display:flex;
+      flex-direction:column;
+    }
+    .cover{
+      min-height:var(--page-h);
+    }
+    *{
+      -webkit-print-color-adjust:exact !important;
+      print-color-adjust:exact !important;
+    }
+    .duo-silhouette svg,
+    .passive-cycle svg,
+    .referral-map svg,
+    .stairs-panel svg,
+    .gn-card .gn-svg,
+    .need-card .need-svg svg,
+    .career-hero .ch-art svg,
+    .team-panel svg{
+      max-height:none !important;
+    }
+  }
+</style>
+</head>
+<body style="zoom: 0.69;">
+
+<div id="scaleWrap">
+
+<!-- ============================================================
+     01 · ОБЛОЖКА (ОБНОВЛЕНА)
+     ============================================================ -->
+<div class="page cover">
+  <div class="cover-grid"></div>
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div class="eyebrow">Вводный в работу · Страховой агент</div>
+      <h1>Работа, в которой <span class="gold">помогаешь — и зарабатываешь</span></h1>
+      <p class="sub">Это не вакансия и не презентация. Честный разбор: кто такой агент, как работает, сколько зарабатывает и почему одни горят, а другие выгорают. 10 минут чтения — и ты поймёшь, твоё это или нет.</p>
+    </div>
+    <div>
+      <div class="cover-hero">
+        <div class="cover-hero-text">
+          <div class="ch-label"><b>Страховой агент</b>
+          </div>
+          <div class="ch-claim"><br>
+            
+          </div>
+        </div>
+        <div class="cover-hero-art">
+          <svg viewBox="0 0 340 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <lineargradient id="cvAgentBody" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#5cc8ff"></stop>
+                <stop offset="45%" stop-color="#1c72e0"></stop>
+                <stop offset="100%" stop-color="#0a4fa8"></stop>
+              </lineargradient>
+              <lineargradient id="cvAgentHead" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#a8dcff"></stop>
+                <stop offset="100%" stop-color="#2ea8ff"></stop>
+              </lineargradient>
+              <lineargradient id="cvShirt" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff"></stop>
+                <stop offset="100%" stop-color="#dceaff"></stop>
+              </lineargradient>
+              <lineargradient id="cvShield" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#5cc8ff"></stop>
+                <stop offset="100%" stop-color="#0a4fa8"></stop>
+              </lineargradient>
+              <lineargradient id="cvDoc" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff"></stop>
+                <stop offset="100%" stop-color="#e8f4ff"></stop>
+              </lineargradient>
+              <lineargradient id="cvFriend" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#4ade9a"></stop>
+                <stop offset="100%" stop-color="#12a86a"></stop>
+              </lineargradient>
+              <lineargradient id="cvFriendHead" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#a8f0c8"></stop>
+                <stop offset="100%" stop-color="#4ade9a"></stop>
+              </lineargradient>
+              <radialgradient id="cvGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#5cc8ff" stop-opacity=".45"></stop>
+                <stop offset="100%" stop-color="#5cc8ff" stop-opacity="0"></stop>
+              </radialgradient>
+              <radialgradient id="cvFriendGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#4ade9a" stop-opacity=".45"></stop>
+                <stop offset="100%" stop-color="#4ade9a" stop-opacity="0"></stop>
+              </radialgradient>
+            </defs>
+
+            <!-- центральное свечение -->
+            <circle cx="170" cy="150" r="120" fill="url(#cvGlow)"></circle>
+
+            <!-- Щит-защита сверху -->
+            <g transform="translate(170, 0)">
+              <path d="M -26 0 L 26 0 L 26 18 Q 26 38 0 50 Q -26 38 -26 18 Z" fill="url(#cvShield)" stroke="#0a4fa8" stroke-width="2" stroke-linejoin="round"></path>
+              <path d="M -8 22 L -2 28 L 12 12" stroke="#ffffff" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+
+            <!-- Лучи от щита к агенту -->
+            <line x1="170" y1="74" x2="170" y2="92" stroke="#2ea8ff" stroke-width="1.6" opacity="0.5" stroke-dasharray="3 4"></line>
+            <line x1="148" y1="76" x2="152" y2="92" stroke="#2ea8ff" stroke-width="1.4" opacity="0.35" stroke-dasharray="3 4"></line>
+            <line x1="192" y1="76" x2="188" y2="92" stroke="#2ea8ff" stroke-width="1.4" opacity="0.35" stroke-dasharray="3 4"></line>
+
+            <!-- Агент по центру -->
+            <g transform="translate(170, 130)">
+              <!-- тело -->
+              <path d="M 0 -52 Q -22 -46 -28 -18 L -30 42 Q -30 52 -20 52 L 20 52 Q 30 52 30 42 L 28 -18 Q 22 -46 0 -52 Z" fill="url(#cvAgentBody)"></path>
+              <!-- рубашка -->
+              <path d="M 0 -50 L -8 -20 L 0 10 L 8 -20 Z" fill="url(#cvShirt)"></path>
+              <!-- галстук -->
+              <path d="M 0 -30 L -3 -4 L 0 20 L 3 -4 Z" fill="#0a4fa8"></path>
+              <!-- лацканы -->
+              <path d="M -16 -38 L -6 -6 L 0 -14 L -4 -46 Z" fill="#0a4fa8" opacity="0.4"></path>
+              <path d="M 16 -38 L 6 -6 L 0 -14 L 4 -46 Z" fill="#0a4fa8" opacity="0.4"></path>
+              <!-- руки -->
+              <path d="M -20 -22 Q -42 -14 -48 4 Q -50 10 -44 12 Q -38 10 -36 2 Z" fill="url(#cvAgentBody)"></path>
+              <path d="M 20 -22 Q 42 -14 48 4 Q 50 10 44 12 Q 38 10 36 2 Z" fill="url(#cvAgentBody)"></path>
+              <!-- голова -->
+              <circle cx="0" cy="-70" r="18" fill="url(#cvAgentHead)"></circle>
+              <path d="M -18 -72 Q -18 -88 0 -88 Q 18 -88 18 -72 Q 14 -82 0 -84 Q -14 -82 -18 -72 Z" fill="#0a4fa8" opacity="0.75"></path>
+              <circle cx="-6" cy="-72" r="1.7" fill="#0a1f42"></circle>
+              <circle cx="6" cy="-72" r="1.7" fill="#0a1f42"></circle>
+              <path d="M -6 -64 Q 0 -58 6 -64" stroke="#0a1f42" stroke-width="1.8" fill="none" stroke-linecap="round"></path>
+              <!-- бейдж -->
+              <circle cx="-20" cy="-14" r="3" fill="#5cc8ff"></circle>
+              <circle cx="-20" cy="-14" r="5.5" fill="none" stroke="#5cc8ff" stroke-width="0.9" opacity="0.5"></circle>
+            </g>
+
+            <!-- Договор-документ слева снизу -->
+            <g transform="translate(60, 200) rotate(-12)">
+              <rect x="-22" y="-28" width="44" height="58" rx="3" fill="url(#cvDoc)" stroke="#1c72e0" stroke-width="1.6"></rect>
+              <path d="M -14 -18 L 14 -18" stroke="#1c72e0" stroke-width="1.6" stroke-linecap="round" opacity="0.6"></path>
+              <path d="M -14 -10 L 14 -10" stroke="#1c72e0" stroke-width="1.6" stroke-linecap="round" opacity="0.6"></path>
+              <path d="M -14 -2 L 6 -2" stroke="#1c72e0" stroke-width="1.6" stroke-linecap="round" opacity="0.6"></path>
+              <path d="M -14 12 Q -4 4 4 14 Q 10 20 16 12" stroke="#0a4fa8" stroke-width="1.8" fill="none" stroke-linecap="round"></path>
+              <circle cx="12" cy="20" r="8" fill="#12a86a" opacity="0.15"></circle>
+              <path d="M 8 20 L 11 23 L 16 17" stroke="#12a86a" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+
+            <!-- Довольные люди (зелёные) справа -->
+            <g transform="translate(258, 210)">
+              <circle cx="0" cy="0" r="34" fill="url(#cvFriendGlow)"></circle>
+              <circle cx="0" cy="-16" r="12" fill="url(#cvFriendHead)"></circle>
+              <path d="M -4 -16 Q 0 -12 4 -16" stroke="#0a4fa8" stroke-width="1.4" fill="none" stroke-linecap="round"></path>
+              <circle cx="-4" cy="-18" r="1.3" fill="#0a4fa8"></circle>
+              <circle cx="4" cy="-18" r="1.3" fill="#0a4fa8"></circle>
+              <path d="M 0 -4 Q -14 0 -16 18 L -17 34 Q -17 40 -10 40 L 10 40 Q 17 40 17 34 L 16 18 Q 14 0 0 -4 Z" fill="url(#cvFriend)"></path>
+            </g>
+            <g transform="translate(298, 232)">
+              <circle cx="0" cy="0" r="28" fill="url(#cvFriendGlow)"></circle>
+              <circle cx="0" cy="-13" r="10" fill="url(#cvFriendHead)"></circle>
+              <path d="M -3 -13 Q 0 -10 3 -13" stroke="#0a4fa8" stroke-width="1.2" fill="none" stroke-linecap="round"></path>
+              <circle cx="-3" cy="-15" r="1.1" fill="#0a4fa8"></circle>
+              <circle cx="3" cy="-15" r="1.1" fill="#0a4fa8"></circle>
+              <path d="M 0 -3 Q -11 0 -13 15 L -14 28 Q -14 33 -8 33 L 8 33 Q 14 33 14 28 L 13 15 Q 11 0 0 -3 Z" fill="url(#cvFriend)"></path>
+            </g>
+            <g transform="translate(232, 240)">
+              <circle cx="0" cy="0" r="26" fill="url(#cvFriendGlow)"></circle>
+              <circle cx="0" cy="-12" r="9" fill="url(#cvFriendHead)"></circle>
+              <path d="M -3 -12 Q 0 -9 3 -12" stroke="#0a4fa8" stroke-width="1.2" fill="none" stroke-linecap="round"></path>
+              <circle cx="-3" cy="-14" r="1.1" fill="#0a4fa8"></circle>
+              <circle cx="3" cy="-14" r="1.1" fill="#0a4fa8"></circle>
+              <path d="M 0 -3 Q -10 0 -12 14 L -13 26 Q -13 31 -7 31 L 7 31 Q 13 31 13 26 L 12 14 Q 10 0 0 -3 Z" fill="url(#cvFriend)"></path>
+            </g>
+
+            <!-- Мини-щиты-галочки вокруг -->
+            <g transform="translate(78, 100)" opacity="0.7">
+              <path d="M 0 0 L 12 0 L 12 8 Q 12 15 6 19 Q 0 15 0 8 Z" fill="none" stroke="#12a86a" stroke-width="1.6" stroke-linejoin="round"></path>
+              <path d="M 4 9 L 6 11 L 9 7" stroke="#12a86a" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+
+            <!-- Точки -->
+            <circle cx="46" cy="150" r="2.2" fill="#a8d4ff"></circle>
+            <circle cx="300" cy="110" r="2.2" fill="#a8d4ff"></circle>
+            <circle cx="320" cy="160" r="1.8" fill="#a8d4ff"></circle>
+            <circle cx="42" cy="240" r="1.8" fill="#a8d4ff"></circle>
+          </svg>
+        </div>
+      </div>
+      <div class="cover-kpi">
+        <div class="cover-kpi-card highlight">
+          <div class="k-label">Потенциал</div>
+          <div class="k-num">210 000 ₽</div>
+          <div class="k-note">в месяц к 6-му месяцу работы</div>
+        </div>
+        <div class="cover-kpi-card">
+          <div class="k-label"></div>
+          <div class="k-num">Доход без потолка</div>
+          <div class="k-note">Ты сам выбираешь, сколько тебе работать и сколько зарабатывать</div>
+        </div>
+        <div class="cover-kpi-card">
+          <div class="k-label">Комиссия до</div>
+          <div class="k-num">60%</div>
+          <div class="k-note">и моментальная выплата</div>
+        </div>
+      </div>
+      <div class="cover-footer">
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     02 · ЧТО ЭТО ЗА РАБОТА
+     ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="content-header">
+      <span class="tag">Что это за работа</span>
+      <span class="pnum">02</span>
+    </div>
+
+    <h2 class="big-title">Страховой агент — <span class="accent">это кто?</span></h2>
+    <p class="subtitle">Человек, который <b>помогает другим защитить то, что им дорого</b> — машину, квартиру, семью. И получает за это комиссию от страховой. Не «продавец», а <b>специалист, к которому идут за советом</b>.</p>
+
+    <div class="what-grid">
+      <div class="what-card">
+        <div class="wc-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3 L21 8 L21 16 L12 21 L3 16 L3 8 Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round" fill="none"></path>
+            <path d="M12 8 L16 10.5 L16 15 L12 17.5 L8 15 L8 10.5 Z" fill="#fff" opacity="0.9"></path>
+          </svg>
+        </div>
+        <div class="wc-title">Помогаешь защитить важное</div>
+        <div class="wc-text">Машина, квартира, дом, имущество. Ты подбираешь полис, который <b>реально защищает</b>, а не «бумажка для галочки».</div>
+      </div>
+
+      <div class="what-card">
+        <div class="wc-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="1.6" fill="none"></circle>
+            <path d="M12 7 L12 12 L15.5 14" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <div class="wc-title">Работаешь в своём темпе</div>
+        <div class="wc-text">Нет начальника над головой и жёсткого графика. Ты сам решаешь, <b>сколько и когда работать</b>. 3 контакта в день или 10 — доход разный.</div>
+      </div>
+
+      <div class="what-card">
+        <div class="wc-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 18 L10 12 L14 15 L20 7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+            <path d="M15 7 L20 7 L20 12" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+          </svg>
+        </div>
+        <div class="wc-title">Доход зависит от тебя</div>
+        <div class="wc-text">Комиссия — <b>до 60% от стоимости полиса</b>. Выплата моментальная: клиент оплачивает, ты сразу получаешь своё.</div>
+      </div>
+
+      <div class="what-card">
+        <div class="wc-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="9" cy="9" r="3" stroke="#fff" stroke-width="1.6" fill="none"></circle>
+            <circle cx="17" cy="11" r="2.4" stroke="#fff" stroke-width="1.6" fill="none"></circle>
+            <path d="M4 19 Q4 14 9 14 Q14 14 14 19" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"></path>
+            <path d="M15 19 Q15 16 18 16 Q21 16 21 19" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"></path>
+          </svg>
+        </div>
+        <div class="wc-title">Растёшь через рекомендации</div>
+        <div class="wc-text">Один довольный клиент приводит <b>3–5 новых</b>. Это не разовые продажи, а <b>постоянный поток</b>, который растёт сам.</div>
+      </div>
+    </div>
+
+    <div class="why-block">
+      <h3>Кому это подходит</h3>
+      <p>Тем, кто <b>умеет общаться с людьми</b> и хочет доход от собственных усилий, а не от чужого графика. Опыт в страховании не нужен — <b>всему научим</b>. Нужно желание разобраться и помогать.</p>
+    </div>
+
+    <div class="page-footer">Вводный в работу · Страховой агент</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     03 · КАК ЭТО РАБОТАЕТ
+     ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="content-header">
+      <span class="tag">Как это работает</span>
+      <span class="pnum">03</span>
+    </div>
+    <h2 class="big-title">Один цикл — <span class="accent">от знакомства до денег</span></h2>
+    <p class="subtitle">Работа агента — это повторяющийся цикл из пяти шагов. Понял цикл — понял профессию. Дальше просто повторяешь, и деньги растут.</p>
+
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="hs-num">1</div>
+        <div class="hs-body">
+          <div class="hs-title">Знакомишься и узнаёшь, что со страховкой</div>
+          <div class="hs-text">Не «продаёшь», а <b>спрашиваешь</b>. Что застраховано, когда заканчивается полис, всё ли устраивает. Это разговор, а не презентация.</div>
+        </div>
+      </div>
+
+      <div class="how-step">
+        <div class="hs-num">2</div>
+        <div class="hs-body">
+          <div class="hs-title">Считаешь и показываешь варианты</div>
+          <div class="hs-text">Подбираешь <b>2–3 полиса</b> от разных компаний. Объясняешь простыми словами: что покрывается, что нет, где выгоднее. Клиент сам выбирает.</div>
+        </div>
+      </div>
+
+      <div class="how-step">
+        <div class="hs-num">3</div>
+        <div class="hs-body">
+          <div class="hs-title">Оформляешь полис онлайн</div>
+          <div class="hs-text">Это <b>5–10 минут</b>. Клиент оплачивает — полис сразу приходит на email. Ты получаешь комиссию <b>в тот же день</b>.</div>
+        </div>
+      </div>
+
+      <div class="how-step">
+        <div class="hs-num">4</div>
+        <div class="hs-body">
+          <div class="hs-title">Остаёшься на связи</div>
+          <div class="hs-text">Помогаешь с выплатой, если что-то случилось. Напоминаешь о продлении. Именно поэтому клиенты <b>возвращаются</b> — и приводят друзей.</div>
+        </div>
+      </div>
+
+      <div class="how-step">
+        <div class="hs-num">5</div>
+        <div class="hs-body">
+          <div class="hs-title">Просишь рекомендацию</div>
+          <div class="hs-text">Один довольный клиент = <b>3–5 новых</b>. Главный источник дохода. Не реклама, не холодные звонки — а <b>сарафан</b>.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-block">
+      <h3>Что важно понять</h3>
+      <p>Этот цикл <b>повторяется снова и снова</b>. Первые 2–3 сделки даются тяжелее всего — потому что ты учишься. Дальше проще: клиенты идут по рекомендациям, продления приходят сами, ты работаешь уже <b>не «на поиск», а «на поток»</b>.</p>
+    </div>
+
+    <div class="page-footer">Вводный в работу · Страховой агент</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     04 · КАК РАБОТАЕТ СТРАХОВАНИЕ
+     ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="content-header">
+      <span class="tag">Как работает страхование</span>
+      <span class="pnum">04</span>
+    </div>
+
+    <h2 class="big-title">Что такое страхование — <span class="accent">простыми словами</span></h2>
+    <p class="subtitle">Это когда много людей <b>скидываются в общий фонд</b>, и если с кем-то случается беда — он получает выплату из этого фонда. Не «лотерея», а способ <b>не остаться один на один с проблемой</b>.</p>
+
+    <div class="ins-intro">
+      <div class="ii-tag">Простой пример</div>
+      <div class="ii-title">Что происходит, когда случается беда</div>
+      <div class="ii-lead">Вот 6 человек. У всех — машина, квартира или дом. У всех может случиться что угодно: авария, залив, пожар, кража. Но <b>у двоих есть страховка</b> — а у четырёх нет. Смотри, что бывает дальше.</div>
+    </div>
+
+    <div class="ins-compare">
+      <div class="ins-col ins-safe">
+        <div class="ins-col-head">
+          <div class="ins-tag ins-tag-safe">Застрахованы</div>
+          <div class="ins-title">Спокойны — <b>их защитили</b></div>
+        </div>
+
+        <div class="ins-people">
+          <svg class="ins-person ins-person-safe" viewBox="0 0 100 160" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <lineargradient id="gSafeBody" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#4ade9a"></stop>
+                <stop offset="100%" stop-color="#12a86a"></stop>
+              </lineargradient>
+              <lineargradient id="gSafeHead" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#a8f0c8"></stop>
+                <stop offset="100%" stop-color="#4ade9a"></stop>
+              </lineargradient>
+              <radialgradient id="gSafeGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#4ade9a" stop-opacity=".5"></stop>
+                <stop offset="100%" stop-color="#4ade9a" stop-opacity="0"></stop>
+              </radialgradient>
+            </defs>
+            <circle cx="50" cy="60" r="48" fill="url(#gSafeGlow)"></circle>
+            <circle cx="50" cy="34" r="16" fill="url(#gSafeHead)"></circle>
+            <path d="M 43 32 Q 45 29 47 32" stroke="#0a4fa8" stroke-width="1.6" fill="none" stroke-linecap="round"></path>
+            <path d="M 53 32 Q 55 29 57 32" stroke="#0a4fa8" stroke-width="1.6" fill="none" stroke-linecap="round"></path>
+            <path d="M 44 40 Q 50 46 56 40" stroke="#0a4fa8" stroke-width="1.8" fill="none" stroke-linecap="round"></path>
+            <path d="M 50 52 Q 30 56 26 78 L 24 118 Q 24 126 32 126 L 68 126 Q 76 126 76 118 L 74 78 Q 70 56 50 52 Z" fill="url(#gSafeBody)"></path>
+            <path d="M 28 72 Q 14 86 14 100 Q 14 108 22 108 Q 28 106 30 98 Z" fill="url(#gSafeBody)"></path>
+            <path d="M 72 72 Q 86 86 86 100 Q 86 108 78 108 Q 72 106 70 98 Z" fill="url(#gSafeBody)"></path>
+            <path d="M 36 126 L 34 152 Q 34 156 40 156 L 44 156 Q 48 156 48 152 L 48 126 Z" fill="#0d8a55"></path>
+            <path d="M 52 126 L 52 152 Q 52 156 56 156 L 60 156 Q 66 156 66 152 L 64 126 Z" fill="#0d8a55"></path>
+            <g transform="translate(72, 40)">
+              <path d="M 0 0 L 20 0 L 20 14 Q 20 26 10 32 Q 0 26 0 14 Z" fill="#ffffff" stroke="#0d8a55" stroke-width="2" stroke-linejoin="round"></path>
+              <path d="M 6 15 L 9 18 L 15 11" stroke="#12a86a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+          </svg>
+
+          <svg class="ins-person ins-person-safe" viewBox="0 0 100 160" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialgradient id="gSafeGlow2" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#4ade9a" stop-opacity=".5"></stop>
+                <stop offset="100%" stop-color="#4ade9a" stop-opacity="0"></stop>
+              </radialgradient>
+            </defs>
+            <circle cx="50" cy="60" r="48" fill="url(#gSafeGlow2)"></circle>
+            <circle cx="50" cy="34" r="16" fill="url(#gSafeHead)"></circle>
+            <path d="M 34 32 Q 34 18 50 18 Q 66 18 66 32 Q 64 24 50 22 Q 36 24 34 32 Z" fill="#0d8a55" opacity="0.7"></path>
+            <circle cx="68" cy="38" r="6" fill="#0d8a55" opacity="0.7"></circle>
+            <path d="M 43 32 Q 45 29 47 32" stroke="#0a4fa8" stroke-width="1.6" fill="none" stroke-linecap="round"></path>
+            <path d="M 53 32 Q 55 29 57 32" stroke="#0a4fa8" stroke-width="1.6" fill="none" stroke-linecap="round"></path>
+            <path d="M 44 40 Q 50 46 56 40" stroke="#0a4fa8" stroke-width="1.8" fill="none" stroke-linecap="round"></path>
+            <circle cx="40" cy="40" r="2.5" fill="#4ade9a" opacity="0.6"></circle>
+            <circle cx="60" cy="40" r="2.5" fill="#4ade9a" opacity="0.6"></circle>
+            <path d="M 50 52 Q 30 56 26 78 L 24 118 Q 24 126 32 126 L 68 126 Q 76 126 76 118 L 74 78 Q 70 56 50 52 Z" fill="url(#gSafeBody)"></path>
+            <path d="M 28 72 Q 14 86 14 100 Q 14 108 22 108 Q 28 106 30 98 Z" fill="url(#gSafeBody)"></path>
+            <path d="M 72 72 Q 86 86 86 100 Q 86 108 78 108 Q 72 106 70 98 Z" fill="url(#gSafeBody)"></path>
+            <path d="M 36 126 L 34 152 Q 34 156 40 156 L 44 156 Q 48 156 48 152 L 48 126 Z" fill="#0d8a55"></path>
+            <path d="M 52 126 L 52 152 Q 52 156 56 156 L 60 156 Q 66 156 66 152 L 64 126 Z" fill="#0d8a55"></path>
+            <g transform="translate(4, 40)">
+              <path d="M 0 0 L 20 0 L 20 14 Q 20 26 10 32 Q 0 26 0 14 Z" fill="#ffffff" stroke="#0d8a55" stroke-width="2" stroke-linejoin="round"></path>
+              <path d="M 6 15 L 9 18 L 15 11" stroke="#12a86a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+          </svg>
+        </div>
+
+        <div class="ins-note ins-note-safe">
+          Если что-то случится — <b>страховая выплатит</b>. Ремонт, лечение, восстановление. Из общего фонда. <b>Они не платят из своего кармана.</b>
+        </div>
+      </div>
+
+      <div class="ins-col ins-unsafe">
+        <div class="ins-col-head">
+          <div class="ins-tag ins-tag-unsafe">Не застрахованы</div>
+          <div class="ins-title">В зоне риска — <b>всё на себе</b></div>
+        </div>
+
+        <div class="ins-people ins-people-4">
+          <svg class="ins-person ins-person-unsafe" viewBox="0 0 100 160" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <lineargradient id="gUnsafeBody" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#f5b370"></stop>
+                <stop offset="100%" stop-color="#c25a1a"></stop>
+              </lineargradient>
+              <lineargradient id="gUnsafeHead" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#f7c79a"></stop>
+                <stop offset="100%" stop-color="#e88a3c"></stop>
+              </lineargradient>
+            </defs>
+            <circle cx="50" cy="34" r="16" fill="url(#gUnsafeHead)"></circle>
+            <circle cx="45" cy="32" r="1.8" fill="#8a3d0e"></circle>
+            <circle cx="55" cy="32" r="1.8" fill="#8a3d0e"></circle>
+            <path d="M 45 41 L 55 41" stroke="#8a3d0e" stroke-width="1.6" stroke-linecap="round"></path>
+            <path d="M 50 52 Q 30 56 26 78 L 24 118 Q 24 126 32 126 L 68 126 Q 76 126 76 118 L 74 78 Q 70 56 50 52 Z" fill="url(#gUnsafeBody)"></path>
+            <path d="M 28 72 Q 12 76 8 92 Q 6 100 14 102 Q 22 100 26 94 Z" fill="url(#gUnsafeBody)"></path>
+            <path d="M 72 72 Q 88 76 92 92 Q 94 100 86 102 Q 78 100 74 94 Z" fill="url(#gUnsafeBody)"></path>
+            <path d="M 36 126 L 34 152 Q 34 156 40 156 L 44 156 Q 48 156 48 152 L 48 126 Z" fill="#8a3d0e"></path>
+            <path d="M 52 126 L 52 152 Q 52 156 56 156 L 60 156 Q 66 156 66 152 L 64 126 Z" fill="#8a3d0e"></path>
+            <text x="72" y="22" font-size="20" font-weight="800" fill="#c25a1a" opacity="0.55">?</text>
+          </svg>
+
+          <svg class="ins-person ins-person-unsafe" viewBox="0 0 100 160" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="34" r="16" fill="url(#gUnsafeHead)"></circle>
+            <path d="M 34 32 Q 34 18 50 18 Q 66 18 66 32 Q 64 24 50 22 Q 36 24 34 32 Z" fill="#8a3d0e" opacity="0.55"></path>
+            <circle cx="45" cy="32" r="1.8" fill="#8a3d0e"></circle>
+            <circle cx="55" cy="32" r="1.8" fill="#8a3d0e"></circle>
+            <path d="M 45 43 Q 50 39 55 43" stroke="#8a3d0e" stroke-width="1.6" fill="none" stroke-linecap="round"></path>
+            <path d="M 50 52 Q 30 56 26 78 L 24 118 Q 24 126 32 126 L 68 126 Q 76 126 76 118 L 74 78 Q 70 56 50 52 Z" fill="url(#gUnsafeBody)"></path>
+            <path d="M 28 72 Q 22 88 26 102 Q 28 108 34 106 Q 36 100 34 92 Z" fill="url(#gUnsafeBody)"></path>
+            <path d="M 72 72 Q 78 88 74 102 Q 72 108 66 106 Q 64 100 66 92 Z" fill="url(#gUnsafeBody)"></path>
+            <path d="M 36 126 L 34 152 Q 34 156 40 156 L 44 156 Q 48 156 48 152 L 48 126 Z" fill="#8a3d0e"></path>
+            <path d="M 52 126 L 52 152 Q 52 156 56 156 L 60 156 Q 66 156 66 152 L 64 126 Z" fill="#8a3d0e"></path>
+          </svg>
+
+          <svg class="ins-person ins-person-unsafe" viewBox="0 0 100 160" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="36" r="16" fill="url(#gUnsafeHead)"></circle>
+            <circle cx="45" cy="34" r="2" fill="#8a3d0e"></circle>
+            <circle cx="55" cy="34" r="2" fill="#8a3d0e"></circle>
+            <ellipse cx="50" cy="44" rx="3" ry="2" fill="#8a3d0e"></ellipse>
+            <path d="M 50 54 Q 30 58 26 80 L 24 118 Q 24 126 32 126 L 68 126 Q 76 126 76 118 L 74 80 Q 70 58 50 54 Z" fill="url(#gUnsafeBody)"></path>
+            <path d="M 28 74 Q 18 60 26 42 Q 30 36 36 40 Q 38 48 34 60 Q 32 70 30 76 Z" fill="url(#gUnsafeBody)"></path>
+            <path d="M 72 74 Q 82 60 74 42 Q 70 36 64 40 Q 62 48 66 60 Q 68 70 70 76 Z" fill="url(#gUnsafeBody)"></path>
+            <path d="M 36 126 L 34 152 Q 34 156 40 156 L 44 156 Q 48 156 48 152 L 48 126 Z" fill="#8a3d0e"></path>
+            <path d="M 52 126 L 52 152 Q 52 156 56 156 L 60 156 Q 66 156 66 152 L 64 126 Z" fill="#8a3d0e"></path>
+            <text x="72" y="24" font-size="20" font-weight="800" fill="#c25a1a" opacity="0.65">!</text>
+          </svg>
+
+          <svg class="ins-person ins-person-unsafe" viewBox="0 0 100 160" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="54" cy="38" r="16" fill="url(#gUnsafeHead)"></circle>
+            <path d="M 38 36 Q 38 22 54 22 Q 70 22 70 36 Q 68 28 54 26 Q 40 28 38 36 Z" fill="#8a3d0e" opacity="0.55"></path>
+            <path d="M 46 38 Q 49 41 52 38" stroke="#8a3d0e" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
+            <path d="M 58 38 Q 61 41 64 38" stroke="#8a3d0e" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
+            <path d="M 48 48 Q 54 44 60 48" stroke="#8a3d0e" stroke-width="1.6" fill="none" stroke-linecap="round"></path>
+            <path d="M 54 56 Q 36 60 30 82 L 28 118 Q 28 126 36 126 L 72 126 Q 80 126 80 118 L 76 82 Q 70 60 54 56 Z" fill="url(#gUnsafeBody)"></path>
+            <path d="M 32 76 Q 22 92 22 106 Q 22 112 30 110 Q 34 104 34 94 Z" fill="url(#gUnsafeBody)"></path>
+            <path d="M 76 76 Q 86 92 86 106 Q 86 112 78 110 Q 74 104 74 94 Z" fill="url(#gUnsafeBody)"></path>
+            <path d="M 40 126 L 38 152 Q 38 156 44 156 L 48 156 Q 52 156 52 152 L 52 126 Z" fill="#8a3d0e"></path>
+            <path d="M 56 126 L 56 152 Q 56 156 60 156 L 64 156 Q 70 156 70 152 L 68 126 Z" fill="#8a3d0e"></path>
+          </svg>
+        </div>
+
+        <div class="ins-note ins-note-unsafe">
+          Если что-то случится — <b>платят из своего кармана</b>. Ремонт, лечение, восстановление. Иногда — десятки и сотни тысяч. <b>И никто не поможет.</b>
+        </div>
+      </div>
+    </div>
+
+    <div class="ins-conclusion">
+      <div class="ic-tag">Вывод</div>
+      <div class="ic-text">Страхование — это не «отдать деньги и забыть». Это <b>переложить риск с одного человека на общий фонд</b>. Поэтому агент, который честно это объясняет, — <b>нужен людям</b>. Он помогает не остаться один на один с бедой.</div>
+    </div>
+
+    <div class="page-footer">Вводный в работу · Страховой агент</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     05 · СКОЛЬКО ЗАРАБАТЫВАЕТ АГЕНТ
+     ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="content-header">
+      <span class="tag">Сколько зарабатывает агент</span>
+      <span class="pnum">05</span>
+    </div>
+
+    <h2 class="big-title">Сколько <span class="money">зарабатывает агент</span></h2>
+    <p class="subtitle">Комиссия — <b>до 60% от стоимости полиса</b>. Выплата моментальная: клиент оплачивает, ты сразу получаешь своё. Вот <b>обычный месяц</b> работающего агента — 9 новых полисов и продления.</p>
+
+    <div class="income-bars">
+      <div class="income-row">
+        <div class="prod">ОСАГО<small>3 ПОЛИСА</small></div>
+        <div class="bar-track"><div class="bar-fill bar-osago"></div></div>
+        <div class="total">7 500 ₽</div>
+      </div>
+      <div class="income-row">
+        <div class="prod">КАСКО<small>3 полиса — главный продукт</small></div>
+        <div class="bar-track"><div class="bar-fill bar-kasko"></div></div>
+        <div class="total">45 000 ₽</div>
+      </div>
+      <div class="income-row">
+        <div class="prod">Квартира<small>2 полиса</small></div>
+        <div class="bar-track"><div class="bar-fill bar-flat"></div></div>
+        <div class="total">10 000 ₽</div>
+      </div>
+      <div class="income-row">
+        <div class="prod">Имущество<small>1 полис</small></div>
+        <div class="bar-track"><div class="bar-fill bar-property"></div></div>
+        <div class="total">8 000 ₽</div>
+      </div>
+      <div class="income-row">
+        <div class="prod">Продления<small>полисы прошлых месяцев</small></div>
+        <div class="bar-track"><div class="bar-fill bar-renewal"></div></div>
+        <div class="total">18 000 ₽</div>
+      </div>
+    </div>
+
+    <div class="total-panel">
+      <div class="tp-left">
+        <div class="tp-label">Итого за месяц</div>
+        <div class="tp-title">9 новых полисов + продления прошлых</div>
+      </div>
+      <div class="tp-right">
+        <div class="tp-num">88 500 ₽<small>~1 062 000 ₽ в год</small></div>
+      </div>
+    </div>
+
+    <div class="nine-panel">
+      <div class="np-num">9</div>
+      <div class="np-content">
+        <h3>Это всего 9 новых полисов за месяц</h3>
+        <p>Меньше, чем <b>один полис раз в три дня</b>. Не «работать сутками», а «не забывать систематическую работу». При этом — больше 85 000 ₽ с учётом продлений.</p>
+        <p>А теперь подумай: <b>сколько машин ты видишь за один день?</b> Каждая — потенциальный клиент. Страховка нужна всем — просто большинство ещё не задумывалось.</p>
+      </div>
+    </div>
+
+    <div class="nine-facts">
+      <div class="nine-fact">
+        <div class="nf-num">9</div>
+        <div class="nf-text">полисов — это <b>меньше одного действия в 3 дня</b>. Не «напрягись», а «не забывай».</div>
+      </div>
+      <div class="nine-fact">
+        <div class="nf-num">1000+</div>
+        <div class="nf-text">машин в день видит обычный человек. Каждая — <b>потенциальный клиент</b>.</div>
+      </div>
+      <div class="nine-fact">
+        <div class="nf-num">200</div>
+        <div class="nf-text">квартир в твоём подъезде и рядом. В каждой — люди, которым <b>нужна защита</b>.</div>
+      </div>
+    </div>
+
+    <div class="page-footer">Расчёты приблизительные</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     06 · ПАССИВНЫЙ ДОХОД С ПРОДЛЕНИЙ
+     ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="content-header">
+      <span class="tag">Пассивный доход</span>
+      <span class="pnum">06</span>
+    </div>
+
+    <h2 class="big-title">Деньги, которые <span class="money">приходят сами</span></h2>
+    <p class="subtitle">Каждый оформленный полис <b>возвращается через год</b>. Клиент продлевает — ты снова получаешь комиссию, <b>не сделав ничего нового</b>. Это и есть пассивный доход.</p>
+
+    <div class="passive-intro">
+      <div class="pi-tag">Как это работает</div>
+      <div class="pi-title">Один раз оформил — получаешь каждый год</div>
+      <div class="pi-lead">ОСАГО, КАСКО, квартира — <b>все эти полисы продлеваются ежегодно</b>. Клиент платит снова, страховая снова платит тебе комиссию. Ты просто напоминаешь старому клиенту за 30 дней. <b>И получаешь деньги.</b></div>
+    </div>
+
+    <div class="passive-cycle">
+      <div class="pc-title">Цикл продления · деньги приходят сами</div>
+      <svg viewBox="0 0 520 260" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <lineargradient id="pcycLine" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#a8d4ff"></stop>
+            <stop offset="100%" stop-color="#2ea8ff"></stop>
+          </lineargradient>
+          <radialgradient id="pcycGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#2ea8ff" stop-opacity=".4"></stop>
+            <stop offset="100%" stop-color="#2ea8ff" stop-opacity="0"></stop>
+          </radialgradient>
+          <lineargradient id="pcycNode" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#1c72e0"></stop>
+            <stop offset="100%" stop-color="#0a4fa8"></stop>
+          </lineargradient>
+        </defs>
+
+        <circle cx="260" cy="130" r="90" fill="none" stroke="url(#pcycLine)" stroke-width="3" stroke-dasharray="4 8" opacity="0.7"></circle>
+
+        <path d="M 260 40 L 272 46 L 260 52 Z" fill="#2ea8ff"></path>
+        <path d="M 350 130 L 344 142 L 338 130 Z" fill="#2ea8ff"></path>
+        <path d="M 260 220 L 248 214 L 260 208 Z" fill="#2ea8ff"></path>
+        <path d="M 170 130 L 176 118 L 182 130 Z" fill="#2ea8ff"></path>
+
+        <circle cx="260" cy="40" r="30" fill="url(#pcycGlow)"></circle>
+        <circle cx="260" cy="40" r="22" fill="url(#pcycNode)"></circle>
+        <text x="260" y="37" font-size="6" font-weight="800" fill="#fff" text-anchor="middle" letter-spacing=".3">ОФОРМИЛ</text>
+        <text x="260" y="47" font-size="6" font-weight="800" fill="#fff" text-anchor="middle" letter-spacing=".3">ПОЛИС</text>
+
+        <circle cx="350" cy="130" r="30" fill="url(#pcycGlow)"></circle>
+        <circle cx="350" cy="130" r="22" fill="url(#pcycNode)"></circle>
+        <text x="350" y="127" font-size="6" font-weight="800" fill="#fff" text-anchor="middle" letter-spacing=".3">ГОД</text>
+        <text x="350" y="137" font-size="6" font-weight="800" fill="#fff" text-anchor="middle" letter-spacing=".3">ПРОШЁЛ</text>
+
+        <circle cx="260" cy="220" r="30" fill="url(#pcycGlow)"></circle>
+        <circle cx="260" cy="220" r="22" fill="url(#pcycNode)"></circle>
+        <text x="260" y="217" font-size="6" font-weight="800" fill="#fff" text-anchor="middle" letter-spacing=".3">КЛИЕНТ</text>
+        <text x="260" y="227" font-size="6" font-weight="800" fill="#fff" text-anchor="middle" letter-spacing=".3">ПРОДЛИЛ</text>
+
+        <circle cx="170" cy="130" r="30" fill="url(#pcycGlow)"></circle>
+        <circle cx="170" cy="130" r="22" fill="#12a86a"></circle>
+        <text x="170" y="127" font-size="6" font-weight="800" fill="#fff" text-anchor="middle" letter-spacing=".3">КОМИССИЯ</text>
+        <text x="170" y="137" font-size="7" font-weight="800" fill="#fff" text-anchor="middle">₽ ₽ ₽</text>
+
+        <circle cx="260" cy="130" r="40" fill="#fff"></circle>
+        <text x="260" y="124" font-size="10" font-weight="800" fill="#0a4fa8" text-anchor="middle" letter-spacing=".3">БЕЗ</text>
+        <text x="260" y="137" font-size="10" font-weight="800" fill="#0a4fa8" text-anchor="middle" letter-spacing=".3">НОВЫХ</text>
+        <text x="260" y="150" font-size="10" font-weight="800" fill="#0a4fa8" text-anchor="middle" letter-spacing=".3">УСИЛИЙ</text>
+      </svg>
+    </div>
+
+    <div class="passive-steps">
+      <div class="ps-card">
+        <div class="ps-num">Шаг 1</div>
+        <div class="ps-title">Оформил полис клиенту</div>
+        <div class="ps-text">Получил комиссию <b>сразу</b>. Например, 2 500 ₽ за ОСАГО или 15 000 ₽ за КАСКО.</div>
+      </div>
+      <div class="ps-card">
+        <div class="ps-num">Шаг 2</div>
+        <div class="ps-title">Напомнил за 30 дней</div>
+        <div class="ps-text">Через год — просто написал: <b>«Привет! Полис заканчивается, продлеваем?»</b>. Клиент соглашается.</div>
+      </div>
+      <div class="ps-card">
+        <div class="ps-num">Шаг 3</div>
+        <div class="ps-title">Получил комиссию снова</div>
+        <div class="ps-text">Клиент оплачивает — <b>ты получаешь комиссию опять</b>. Не искал нового, просто напомнил.</div>
+      </div>
+    </div>
+
+    <div class="passive-math">
+      <div class="pm-tag">Как это растёт · год за годом</div>
+      <div class="pm-rows">
+        <div class="pm-row">
+          <div class="pmr-year">Год 1</div>
+          <div class="pmr-desc">30 клиентов оформлено · разовая комиссия</div>
+          <div class="pmr-sum">250 000 ₽</div>
+        </div>
+        <div class="pm-row">
+          <div class="pmr-year">Год 2</div>
+          <div class="pmr-desc">+30 новых · 25 продлили прошлогодние</div>
+          <div class="pmr-sum">480 000 ₽</div>
+        </div>
+        <div class="pm-row">
+          <div class="pmr-year">Год 3</div>
+          <div class="pmr-desc">+30 новых · 50 продлений из базы</div>
+          <div class="pmr-sum">680 000 ₽</div>
+        </div>
+        <div class="pm-row peak">
+          <div class="pmr-year">Год 5</div>
+          <div class="pmr-desc">+30 новых · 120 продлений «на автопилоте»</div>
+          <div class="pmr-sum">1 200 000 ₽</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-block">
+      <h3>Почему это самое ценное в работе</h3>
+      <p>Новичок оформляет 30 полисов и получает 250 000 ₽. Агент, который работает <b>3 года</b>, оформляет те же 30 — но у него уже <b>база из 90 клиентов</b>, которые продлеваются. Те же усилия — <b>в 3 раза больше денег</b>. Поэтому в страховании выгодно работать долго.</p>
+    </div>
+
+    <div class="final-punch">
+      <div class="fp-tag">Главное</div>
+      <div class="fp-quote">Сначала ты <b>строишь базу</b>.<br>Дальше база <b>работает на тебя</b>.</div>
+    </div>
+
+    <div class="page-footer">Вводный в работу · Страховой агент</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     07 · ПОРТРЕТ И АНТИПОРТРЕТ
+     ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="content-header">
+      <span class="tag">Два типа агентов</span>
+      <span class="pnum">07</span>
+    </div>
+
+    <h2 class="big-title">Одни зарабатывают. <span class="accent">Другие выгорают</span></h2>
+    <p class="subtitle">Внешне делают одно и то же: пишут людям, предлагают полисы, оформляют. Но <b>люди чувствуют разницу</b>. Слева — тот, к кому возвращаются. Справа — кого избегают.</p>
+
+    <div class="duo-stage">
+
+      <div class="duo-col good">
+        <div class="duo-head">
+          <div class="duo-tag">Помощник</div>
+          <div class="duo-title">Агент, которому доверяют</div>
+        </div>
+
+        <div class="duo-silhouette">
+          <svg viewBox="0 0 260 360" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <lineargradient id="gBodyG" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#5cc8ff"></stop>
+                <stop offset="45%" stop-color="#1c72e0"></stop>
+                <stop offset="100%" stop-color="#0a4fa8"></stop>
+              </lineargradient>
+              <lineargradient id="gHeadG" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#a8dcff"></stop>
+                <stop offset="100%" stop-color="#2ea8ff"></stop>
+              </lineargradient>
+              <lineargradient id="gShirtG" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff"></stop>
+                <stop offset="100%" stop-color="#dceaff"></stop>
+              </lineargradient>
+              <lineargradient id="gCaseG" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#8b5a2b"></stop>
+                <stop offset="100%" stop-color="#5c3816"></stop>
+              </lineargradient>
+              <radialgradient id="gGlowG" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#5cc8ff" stop-opacity=".45"></stop>
+                <stop offset="100%" stop-color="#5cc8ff" stop-opacity="0"></stop>
+              </radialgradient>
+            </defs>
+
+            <circle cx="130" cy="150" r="105" fill="url(#gGlowG)"></circle>
+
+            <circle cx="130" cy="66" r="26" fill="url(#gHeadG)"></circle>
+            <path d="M 120 74 Q 130 82 140 74" stroke="#0a4fa8" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.85"></path>
+            <path d="M 119 62 Q 122 58 125 62" stroke="#0a4fa8" stroke-width="1.8" fill="none" stroke-linecap="round"></path>
+            <path d="M 135 62 Q 138 58 141 62" stroke="#0a4fa8" stroke-width="1.8" fill="none" stroke-linecap="round"></path>
+
+            <rect x="124" y="88" width="12" height="8" fill="#2ea8ff" opacity="0.85"></rect>
+
+            <path d="M 130 96 Q 96 102 88 130 L 84 200 Q 84 212 96 212 L 164 212 Q 176 212 176 200 L 172 130 Q 164 102 130 96 Z" fill="url(#gBodyG)"></path>
+
+            <path d="M 130 98 L 120 138 L 130 156 L 140 138 Z" fill="url(#gShirtG)"></path>
+
+            <path d="M 130 120 L 124 152 L 130 184 L 136 152 Z" fill="#0a4fa8"></path>
+            <path d="M 130 120 L 126 130 L 130 138 L 134 130 Z" fill="#1c72e0"></path>
+
+            <path d="M 108 104 L 120 158 L 130 142 L 124 98 Z" fill="#0a4fa8" opacity="0.4"></path>
+            <path d="M 152 104 L 140 158 L 130 142 L 136 98 Z" fill="#0a4fa8" opacity="0.4"></path>
+
+            <circle cx="130" cy="182" r="1.8" fill="#ffffff" opacity="0.6"></circle>
+            <circle cx="130" cy="196" r="1.8" fill="#ffffff" opacity="0.6"></circle>
+
+            <path d="M 94 120 Q 78 140 76 168 Q 76 180 84 182 Q 92 180 94 168 Q 96 148 102 132 Z" fill="url(#gBodyG)"></path>
+            <path d="M 166 120 Q 180 140 182 168 Q 182 180 174 182 Q 168 180 166 168 Q 164 148 158 132 Z" fill="url(#gBodyG)"></path>
+
+            <rect x="166" y="180" width="34" height="26" rx="3" fill="url(#gCaseG)"></rect>
+            <path d="M 176 180 Q 176 172 183 172 Q 190 172 190 180" stroke="#3b2410" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+            <rect x="180" y="188" width="6" height="6" rx="1" fill="#d4a56a" stroke="#3b2410" stroke-width="1"></rect>
+
+            <path d="M 104 212 L 100 296 Q 100 306 108 306 L 116 306 Q 122 306 122 296 L 124 212 Z" fill="#0a4fa8"></path>
+            <path d="M 136 212 L 138 296 Q 138 306 144 306 L 152 306 Q 160 306 160 296 L 156 212 Z" fill="#0a4fa8"></path>
+
+            <ellipse cx="110" cy="308" rx="14" ry="5" fill="#0a1f42"></ellipse>
+            <ellipse cx="150" cy="308" rx="14" ry="5" fill="#0a1f42"></ellipse>
+
+            <circle cx="112" cy="130" r="2.5" fill="#5cc8ff"></circle>
+            <circle cx="112" cy="130" r="5" fill="none" stroke="#5cc8ff" stroke-width="1" opacity="0.5"></circle>
+          </svg>
+        </div>
+
+        <div class="duo-badges">
+          <div class="duo-badge">
+            <div class="db-who">Клиент</div>
+            <div class="db-quote">«Помог разобраться, не навязывал. <b>К нему вернусь</b>».</div>
+          </div>
+          <div class="duo-badge">
+            <div class="db-who">Друг</div>
+            <div class="db-quote">«Он теперь в страховании. <b>Спрошу совета</b>».</div>
+          </div>
+          <div class="duo-badge">
+            <div class="db-who">Знакомый</div>
+            <div class="db-quote">«Скинул его другу — <b>он реально помог</b>».</div>
+          </div>
+          <div class="duo-badge">
+            <div class="db-who">Семья</div>
+            <div class="db-quote">«Занят, но доволен. <b>Нашёл своё</b>».</div>
+          </div>
+          <div class="duo-badge">
+            <div class="db-who">Новый клиент</div>
+            <div class="db-quote">«Советовали друзья. <b>Доверяю</b>».</div>
+          </div>
+        </div>
+
+        <div class="duo-salary">
+          <div class="ds-label">Доход</div>
+          <div class="ds-num">130 000 ₽</div>
+          <div class="ds-note">и растёт каждый месяц</div>
+        </div>
+      </div>
+
+      <div class="duo-col bad">
+        <div class="duo-head">
+          <div class="duo-tag">Впариватель</div>
+          <div class="duo-title">Агент, которого избегают</div>
+        </div>
+
+        <div class="duo-silhouette">
+          <svg viewBox="0 0 260 360" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <lineargradient id="gBodyB" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#f5b370"></stop>
+                <stop offset="50%" stop-color="#c25a1a"></stop>
+                <stop offset="100%" stop-color="#8a3d0e"></stop>
+              </lineargradient>
+              <lineargradient id="gHeadB" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#f7c79a"></stop>
+                <stop offset="100%" stop-color="#e88a3c"></stop>
+              </lineargradient>
+              <lineargradient id="gCaseB" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#a87040"></stop>
+                <stop offset="100%" stop-color="#5c3816"></stop>
+              </lineargradient>
+              <radialgradient id="gGlowB" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#e88a3c" stop-opacity=".35"></stop>
+                <stop offset="100%" stop-color="#e88a3c" stop-opacity="0"></stop>
+              </radialgradient>
+            </defs>
+
+            <circle cx="130" cy="180" r="105" fill="url(#gGlowB)"></circle>
+
+            <ellipse cx="130" cy="314" rx="80" ry="8" fill="#8a3d0e" opacity="0.18"></ellipse>
+
+            <path d="M 76 310 Q 76 278 106 274 L 154 274 Q 184 278 184 310 Z" fill="url(#gBodyB)"></path>
+
+            <path d="M 130 226 Q 90 232 82 270 Q 80 280 90 280 L 170 280 Q 180 280 178 270 Q 170 232 130 226 Z" fill="url(#gBodyB)"></path>
+
+            <path d="M 84 270 Q 96 214 130 210 Q 164 214 176 270" fill="url(#gBodyB)" opacity="0.92"></path>
+
+            <path d="M 110 232 L 118 254 L 110 270" stroke="#8a3d0e" stroke-width="1.5" fill="none" opacity="0.55"></path>
+            <path d="M 150 232 L 142 254 L 150 270" stroke="#8a3d0e" stroke-width="1.5" fill="none" opacity="0.55"></path>
+
+            <path d="M 110 216 L 116 208 L 122 218 Z" fill="#8a3d0e" opacity="0.6"></path>
+
+            <path d="M 130 224 L 126 248 L 132 268 L 138 246 Z" fill="#8a3d0e" opacity="0.85"></path>
+
+            <circle cx="130" cy="202" r="24" fill="url(#gHeadB)"></circle>
+            <path d="M 122 212 Q 130 206 138 212" stroke="#8a3d0e" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.85"></path>
+            <path d="M 120 200 Q 124 204 128 200" stroke="#8a3d0e" stroke-width="1.6" fill="none" stroke-linecap="round"></path>
+            <path d="M 132 200 Q 136 204 140 200" stroke="#8a3d0e" stroke-width="1.6" fill="none" stroke-linecap="round"></path>
+            <path d="M 120 192 L 126 192 M 134 192 L 140 192" stroke="#8a3d0e" stroke-width="1.2" stroke-linecap="round" opacity="0.5"></path>
+
+            <path d="M 92 234 Q 74 256 80 284 Q 84 296 96 294 Q 106 290 110 280 L 114 266 Z" fill="url(#gBodyB)"></path>
+            <path d="M 168 234 Q 186 256 180 284 Q 176 296 164 294 Q 154 290 150 280 L 146 266 Z" fill="url(#gBodyB)"></path>
+
+            <ellipse cx="108" cy="288" rx="10" ry="8" fill="#e88a3c"></ellipse>
+            <ellipse cx="152" cy="288" rx="10" ry="8" fill="#e88a3c"></ellipse>
+
+            <g transform="translate(196, 288) rotate(-28)">
+              <rect x="0" y="0" width="30" height="22" rx="3" fill="url(#gCaseB)"></rect>
+              <path d="M 8 0 Q 8 -8 15 -8 Q 22 -8 22 0" stroke="#3b2410" stroke-width="2" fill="none" stroke-linecap="round"></path>
+              <rect x="11" y="7" width="6" height="5" rx="1" fill="#a87040" stroke="#3b2410" stroke-width="1"></rect>
+            </g>
+
+            <ellipse cx="168" cy="192" rx="2.5" ry="4" fill="#f7c79a" opacity="0.7"></ellipse>
+            <ellipse cx="172" cy="206" rx="2" ry="3" fill="#f7c79a" opacity="0.55"></ellipse>
+
+            <path d="M 70 224 L 62 218 M 66 234 L 58 232" stroke="#8a3d0e" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.4"></path>
+          </svg>
+        </div>
+
+        <div class="duo-badges">
+          <div class="duo-badge">
+            <div class="db-who">Клиент</div>
+            <div class="db-quote">«Продал и пропал. <b>Больше не обращусь</b>».</div>
+          </div>
+          <div class="duo-badge">
+            <div class="db-who">Друг</div>
+            <div class="db-quote">«Опять пытается что-то продать. <b>Неудобно</b>».</div>
+          </div>
+          <div class="duo-badge">
+            <div class="db-who">Знакомый</div>
+            <div class="db-quote">«Лучше не рекомендовать. <b>Он навязчивый</b>».</div>
+          </div>
+          <div class="duo-badge">
+            <div class="db-who">Семья</div>
+            <div class="db-quote">«Злой, выгоревший. <b>Постоянно на нервах</b>».</div>
+          </div>
+          <div class="duo-badge">
+            <div class="db-who">Коллега</div>
+            <div class="db-quote">«Каждый месяц начинает с нуля. <b>Скоро уйдёт</b>».</div>
+          </div>
+        </div>
+
+        <div class="duo-salary">
+          <div class="ds-label">Доход</div>
+          <div class="ds-num">20 000 ₽</div>
+          <div class="ds-note">и выгорает через 2–3 месяца</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="page-footer">Вводный в работу · Страховой агент</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     08 · У ТЕБЯ УЖЕ ЕСТЬ ПЕРВЫЕ КЛИЕНТЫ
+     ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="content-header">
+      <span class="tag">У тебя уже есть клиенты</span>
+      <span class="pnum">08</span>
+    </div>
+
+    <h2 class="big-title">У тебя уже есть <span class="accent">первые клиенты</span></h2>
+    <p class="subtitle">Ты, наверное, думаешь: «Ну стану агентом — а кому помогать? У меня нет клиентов». Это частое заблуждение. На самом деле <b>клиенты у тебя уже есть</b> — ты просто их не видишь.</p>
+
+    <div class="audience-panel">
+      <div class="ap-tag">Посмотри вокруг</div>
+      <div class="ap-title">Каждый, кого ты знаешь, — <span class="ap-accent">потенциальный клиент</span></div>
+      <div class="ap-lead">Не «когда-нибудь потом». Уже сейчас, в твоём телефоне, в подъезде, в чатах — десятки людей, которым нужна страховка. Просто они об этом ещё не задумывались. Или не знают, к кому обратиться.</div>
+    </div>
+
+    <div class="audience-grid">
+      <div class="au-item">
+        <div class="au-num">50+</div>
+        <div class="au-body">
+          <div class="au-title">Знакомых в телефоне</div>
+          <div class="au-text">Друзья, коллеги, одноклассники, соседи, родня. У большинства есть машина или квартира — а значит, <b>есть страховка</b>.</div>
+        </div>
+      </div>
+      <div class="au-item">
+        <div class="au-num">200</div>
+        <div class="au-body">
+          <div class="au-title">Квартир вокруг тебя</div>
+          <div class="au-text">В твоём подъезде и в соседних. В каждой — люди, у которых может залить кухню или сгореть проводка. <b>Им нужна защита.</b></div>
+        </div>
+      </div>
+      <div class="au-item">
+        <div class="au-num">1000+</div>
+        <div class="au-body">
+          <div class="au-title">Машин в день</div>
+          <div class="au-text">По дороге на работу. Каждая — <b>чья-то машина</b>. У каждой владелец, у которого заканчивается полис.</div>
+        </div>
+      </div>
+      <div class="au-item">
+        <div class="au-num">∞</div>
+        <div class="au-body">
+          <div class="au-title">Людей в чатах и соцсетях</div>
+          <div class="au-text">Родительские чаты, автофорумы, районные группы. Тысячи людей, которые <b>задают вопросы</b> про страховку — и не знают, кому верить.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="audience-problem">
+      <div class="apb-tag">Но вот проблема</div>
+      <div class="apb-title">Кому же помогать в первую очередь?</div>
+      <div class="apb-text">Клиентов вокруг — сотни. Но <b>с чего начать?</b> Кому писать первым? Кто ответит? Кто готов? Именно об этом — следующая страница. Там простая математика, снимающая вопрос «а вдруг никому не надо».</div>
+    </div>
+
+    <div class="page-footer">Вводный в работу · Страховой агент</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     09 · ПОЧЕМУ СРАБОТАЕТ
+     ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="content-header">
+      <span class="tag">Почему это сработает</span>
+      <span class="pnum">09</span>
+    </div>
+    <h2 class="big-title">Почему важно <span class="accent">рассказывать</span>, даже если кажется, что «не поможет»</h2>
+    <p class="subtitle">Честный вопрос: «Ну напишу знакомым — а если не надо? Если уже застрахованы? Если не ответят?» Разберём спокойно — с реальной математикой.</p>
+
+    <div class="why-block">
+      <h3>Ты работаешь не «со всеми подряд», а с воронкой</h3>
+      <p>Из 15 человек, которым ты напишешь, <b>ответят 12</b> — это твои знакомые, они тебя знают. Из них <b>5 оформят полис</b> — не сразу, кто-то через месяц, кто-то через год. Это не «удача», а математика. <b>Три действия → пять клиентов.</b></p>
+    </div>
+
+    <div class="funnel-people">
+
+      <div class="fp-stage">
+        <div class="fp-head">
+          <div class="fp-num">15</div>
+          <div class="fp-label">сообщений <b>отправил</b> — просто действие, без ожиданий</div>
+        </div>
+        <div class="fp-people">
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#a8d4ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#a8d4ff"></path></svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#a8d4ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#a8d4ff"></path></svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#a8d4ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#a8d4ff"></path></svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#a8d4ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#a8d4ff"></path></svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#a8d4ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#a8d4ff"></path></svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#a8d4ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#a8d4ff"></path></svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#a8d4ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#a8d4ff"></path></svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#a8d4ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#a8d4ff"></path></svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#a8d4ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#a8d4ff"></path></svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#a8d4ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#a8d4ff"></path></svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#a8d4ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#a8d4ff"></path></svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#a8d4ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#a8d4ff"></path></svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#a8d4ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#a8d4ff"></path></svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#a8d4ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#a8d4ff"></path></svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#a8d4ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#a8d4ff"></path></svg>
+        </div>
+        <div class="fp-note">Просто действие. Без ожиданий и оценки «получится / не получится».</div>
+      </div>
+
+      <div class="fp-arrow">↓</div>
+
+      <div class="fp-stage">
+        <div class="fp-head">
+          <div class="fp-num">12</div>
+          <div class="fp-label">ответили и <b>вступили в диалог</b> — это твои знакомые, они тебя знают</div>
+        </div>
+        <div class="fp-people">
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#2ea8ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#2ea8ff"></path></svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#2ea8ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#2ea8ff"></path></svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#2ea8ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#2ea8ff"></path></svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#2ea8ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#2ea8ff"></path></svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#2ea8ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#2ea8ff"></path></svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#2ea8ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#2ea8ff"></path></svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#2ea8ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#2ea8ff"></path></svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#2ea8ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#2ea8ff"></path></svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#2ea8ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#2ea8ff"></path></svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#2ea8ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#2ea8ff"></path></svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#2ea8ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#2ea8ff"></path></svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="12" r="8" fill="#2ea8ff"></circle><path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#2ea8ff"></path></svg>
+        </div>
+        <div class="fp-note">Это уже диалог. Не «продажа», а разговор о том, что у человека со страховкой.</div>
+      </div>
+
+      <div class="fp-arrow">↓</div>
+
+      <div class="fp-stage fp-final">
+        <div class="fp-head">
+          <div class="fp-num">5</div>
+          <div class="fp-label">оформят полис = <b>10 000 - 50 000 ₽ сразу на руки. А через год они продлят полис, и новая комиссия</b></div>
+        </div>
+        <div class="fp-people">
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg" style="width:30px">
+            <circle cx="20" cy="12" r="8" fill="#ffffff"></circle>
+            <path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#ffffff"></path>
+            <path d="M 15 14 Q 20 18 25 14" stroke="#1c72e0" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
+            <circle cx="32" cy="20" r="5" fill="#ffe8a0" stroke="#c25a1a" stroke-width="1"></circle>
+            <text x="32" y="23" font-size="6" font-weight="800" fill="#c25a1a" text-anchor="middle">₽</text>
+          </svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg" style="width:30px">
+            <circle cx="20" cy="12" r="8" fill="#ffffff"></circle>
+            <path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#ffffff"></path>
+            <path d="M 15 14 Q 20 18 25 14" stroke="#1c72e0" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
+            <circle cx="32" cy="20" r="5" fill="#ffe8a0" stroke="#c25a1a" stroke-width="1"></circle>
+            <text x="32" y="23" font-size="6" font-weight="800" fill="#c25a1a" text-anchor="middle">₽</text>
+          </svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg" style="width:30px">
+            <circle cx="20" cy="12" r="8" fill="#ffffff"></circle>
+            <path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#ffffff"></path>
+            <path d="M 15 14 Q 20 18 25 14" stroke="#1c72e0" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
+            <circle cx="32" cy="20" r="5" fill="#ffe8a0" stroke="#c25a1a" stroke-width="1"></circle>
+            <text x="32" y="23" font-size="6" font-weight="800" fill="#c25a1a" text-anchor="middle">₽</text>
+          </svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg" style="width:30px">
+            <circle cx="20" cy="12" r="8" fill="#ffffff"></circle>
+            <path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#ffffff"></path>
+            <path d="M 15 14 Q 20 18 25 14" stroke="#1c72e0" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
+            <circle cx="32" cy="20" r="5" fill="#ffe8a0" stroke="#c25a1a" stroke-width="1"></circle>
+            <text x="32" y="23" font-size="6" font-weight="800" fill="#c25a1a" text-anchor="middle">₽</text>
+          </svg>
+          <svg class="fp-person" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg" style="width:30px">
+            <circle cx="20" cy="12" r="8" fill="#ffffff"></circle>
+            <path d="M 8 60 Q 8 30 20 28 Q 32 30 32 60 Z" fill="#ffffff"></path>
+            <path d="M 15 14 Q 20 18 25 14" stroke="#1c72e0" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
+            <circle cx="32" cy="20" r="5" fill="#ffe8a0" stroke="#c25a1a" stroke-width="1"></circle>
+            <text x="32" y="23" font-size="6" font-weight="800" fill="#c25a1a" text-anchor="middle">₽</text>
+          </svg>
+        </div>
+        <div class="fp-note">Деньги приходят моментально. И это только первая волна — дальше пойдут рекомендации.</div>
+      </div>
+
+    </div>
+
+    <div class="why-block">
+      <h3>«У них уже есть страховка» — это не проблема</h3>
+      <p>Это <b>лучший сценарий</b>. Человек с полисом уже платит за страховку — просто другой компании. Не нужно убеждать, что страхование нужно. Нужно только узнать, когда заканчивается полис, и напомнить за 30 дней.</p>
+      <p>Фраза, которая работает: <b>«А ты знаешь, когда у тебя заканчивается страховка? Давай я напишу за 30 дней до окончания — просто сравним, вдруг найдём выгоднее».</b> Это не продажа. Это помощь. И на неё соглашаются почти все.</p>
+    </div>
+
+    <div class="page-footer">Вводный в работу · Страховой агент</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     10 · СЕТЬ, КОТОРАЯ РАСТЁТ
+     ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="content-header">
+      <span class="tag">Сеть, которая растёт</span>
+      <span class="pnum">10</span>
+    </div>
+
+    <h2 class="big-title">Сеть людей, которые <span class="accent">знают, что ты можешь помочь</span></h2>
+    <p class="subtitle">Ты написал 15, ответили 12, оформили 5. А что с остальными? Те, кто не купил, не ответил, отказался. Неужели потеряны? <b>Нет.</b> Каждый из них — узел в сети, которая растёт сама.</p>
+
+    <div class="referral-intro">
+      <div class="ri-tag">Что происходит на самом деле</div>
+      <div class="ri-title">Они запомнили, что ты работаешь в страховании</div>
+      <div class="ri-lead">Даже если человек не ответил сегодня, не купил, отложил — <b>он уже знает</b>: ты тот, кто в страховании. И когда через месяц его друг, коллега, сосед поднимет тему — <b>про кого он расскажет?</b> Про тебя. Ты был первым, кто об этом заговорил.</div>
+    </div>
+
+    <div class="referral-map">
+      <svg viewBox="0 0 540 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <radialgradient id="rmCenterGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#2ea8ff" stop-opacity=".55"></stop>
+            <stop offset="100%" stop-color="#2ea8ff" stop-opacity="0"></stop>
+          </radialgradient>
+          <radialgradient id="rmNodeGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#5cc8ff" stop-opacity=".4"></stop>
+            <stop offset="100%" stop-color="#5cc8ff" stop-opacity="0"></stop>
+          </radialgradient>
+          <lineargradient id="rmAgentBody" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#5cc8ff"></stop>
+            <stop offset="50%" stop-color="#1c72e0"></stop>
+            <stop offset="100%" stop-color="#0a4fa8"></stop>
+          </lineargradient>
+          <lineargradient id="rmAgentHead" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#a8dcff"></stop>
+            <stop offset="100%" stop-color="#2ea8ff"></stop>
+          </lineargradient>
+          <lineargradient id="rmNodeFill" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff"></stop>
+            <stop offset="100%" stop-color="#eaf3ff"></stop>
+          </lineargradient>
+          <lineargradient id="rmNodeActive" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#5cc8ff"></stop>
+            <stop offset="100%" stop-color="#1c72e0"></stop>
+          </lineargradient>
+        </defs>
+
+        <circle cx="270" cy="190" r="160" fill="none" stroke="#a8d4ff" stroke-width="1.4" stroke-dasharray="3 6" opacity="0.5"></circle>
+        <circle cx="270" cy="190" r="115" fill="none" stroke="#a8d4ff" stroke-width="1.2" stroke-dasharray="3 5" opacity="0.4"></circle>
+
+        <line x1="270" y1="190" x2="90" y2="70" stroke="#a8d4ff" stroke-width="1.6" opacity="0.6"></line>
+        <line x1="270" y1="190" x2="450" y2="70" stroke="#a8d4ff" stroke-width="1.6" opacity="0.6"></line>
+        <line x1="270" y1="190" x2="60" y2="190" stroke="#a8d4ff" stroke-width="1.6" opacity="0.6"></line>
+        <line x1="270" y1="190" x2="480" y2="190" stroke="#a8d4ff" stroke-width="1.6" opacity="0.6"></line>
+        <line x1="270" y1="190" x2="90" y2="320" stroke="#a8d4ff" stroke-width="1.6" opacity="0.6"></line>
+        <line x1="270" y1="190" x2="450" y2="320" stroke="#a8d4ff" stroke-width="1.6" opacity="0.6"></line>
+        <line x1="270" y1="190" x2="270" y2="40" stroke="#a8d4ff" stroke-width="1.6" opacity="0.6"></line>
+        <line x1="270" y1="190" x2="270" y2="350" stroke="#a8d4ff" stroke-width="1.6" opacity="0.6"></line>
+
+        <line x1="90" y1="70" x2="60" y2="190" stroke="#a8d4ff" stroke-width="1" opacity="0.35" stroke-dasharray="2 4"></line>
+        <line x1="90" y1="70" x2="270" y2="40" stroke="#a8d4ff" stroke-width="1" opacity="0.35" stroke-dasharray="2 4"></line>
+        <line x1="450" y1="70" x2="480" y2="190" stroke="#a8d4ff" stroke-width="1" opacity="0.35" stroke-dasharray="2 4"></line>
+        <line x1="450" y1="70" x2="270" y2="40" stroke="#a8d4ff" stroke-width="1" opacity="0.35" stroke-dasharray="2 4"></line>
+        <line x1="90" y1="320" x2="60" y2="190" stroke="#a8d4ff" stroke-width="1" opacity="0.35" stroke-dasharray="2 4"></line>
+        <line x1="90" y1="320" x2="270" y2="350" stroke="#a8d4ff" stroke-width="1" opacity="0.35" stroke-dasharray="2 4"></line>
+        <line x1="450" y1="320" x2="480" y2="190" stroke="#a8d4ff" stroke-width="1" opacity="0.35" stroke-dasharray="2 4"></line>
+        <line x1="450" y1="320" x2="270" y2="350" stroke="#a8d4ff" stroke-width="1" opacity="0.35" stroke-dasharray="2 4"></line>
+
+        <circle cx="270" cy="190" r="70" fill="url(#rmCenterGlow)"></circle>
+        <g transform="translate(270, 190)">
+          <circle cx="0" cy="-34" r="20" fill="url(#rmAgentHead)"></circle>
+          <circle cx="-7" cy="-36" r="1.8" fill="#0a4fa8"></circle>
+          <circle cx="7" cy="-36" r="1.8" fill="#0a4fa8"></circle>
+          <path d="M -7 -28 Q 0 -21 7 -28" stroke="#0a4fa8" stroke-width="1.8" fill="none" stroke-linecap="round"></path>
+          <rect x="-4" y="-15" width="8" height="6" fill="#2ea8ff" opacity="0.85"></rect>
+          <path d="M 0 -9 Q -24 -4 -30 20 L -32 58 Q -32 66 -24 66 L 24 66 Q 32 66 32 58 L 30 20 Q 24 -4 0 -9 Z" fill="url(#rmAgentBody)"></path>
+          <path d="M 0 -6 L -6 16 L 0 28 L 6 16 Z" fill="#ffffff" opacity="0.9"></path>
+          <path d="M 0 8 L -4 26 L 0 42 L 4 26 Z" fill="#0a4fa8"></path>
+          <path d="M -16 0 L -7 26 L 0 18 L -5 -6 Z" fill="#0a4fa8" opacity="0.4"></path>
+          <path d="M 16 0 L 7 26 L 0 18 L 5 -6 Z" fill="#0a4fa8" opacity="0.4"></path>
+          <path d="M -24 8 Q -44 18 -50 38 Q -52 46 -44 48 Q -36 46 -34 36 Z" fill="url(#rmAgentBody)"></path>
+          <path d="M 24 8 Q 44 18 50 38 Q 52 46 44 48 Q 36 46 34 36 Z" fill="url(#rmAgentBody)"></path>
+        </g>
+
+        <circle cx="90" cy="70" r="40" fill="url(#rmNodeGlow)"></circle>
+        <circle cx="90" cy="70" r="26" fill="url(#rmNodeFill)" stroke="#2ea8ff" stroke-width="2.5"></circle>
+        <circle cx="90" cy="62" r="7" fill="#5cc8ff"></circle>
+        <path d="M 78 82 Q 78 74 90 72 Q 102 74 102 82 Z" fill="#5cc8ff"></path>
+
+        <circle cx="450" cy="70" r="40" fill="url(#rmNodeGlow)"></circle>
+        <circle cx="450" cy="70" r="26" fill="url(#rmNodeFill)" stroke="#2ea8ff" stroke-width="2.5"></circle>
+        <circle cx="450" cy="62" r="7" fill="#5cc8ff"></circle>
+        <path d="M 438 82 Q 438 74 450 72 Q 462 74 462 82 Z" fill="#5cc8ff"></path>
+
+        <circle cx="60" cy="190" r="40" fill="url(#rmNodeGlow)"></circle>
+        <circle cx="60" cy="190" r="26" fill="url(#rmNodeFill)" stroke="#2ea8ff" stroke-width="2.5"></circle>
+        <circle cx="60" cy="182" r="7" fill="#5cc8ff"></circle>
+        <path d="M 48 202 Q 48 194 60 192 Q 72 194 72 202 Z" fill="#5cc8ff"></path>
+
+        <circle cx="480" cy="190" r="40" fill="url(#rmNodeGlow)"></circle>
+        <circle cx="480" cy="190" r="26" fill="url(#rmNodeFill)" stroke="#2ea8ff" stroke-width="2.5"></circle>
+        <circle cx="480" cy="182" r="7" fill="#5cc8ff"></circle>
+        <path d="M 468 202 Q 468 194 480 192 Q 492 194 492 202 Z" fill="#5cc8ff"></path>
+
+        <circle cx="90" cy="320" r="40" fill="url(#rmNodeGlow)"></circle>
+        <circle cx="90" cy="320" r="26" fill="url(#rmNodeFill)" stroke="#2ea8ff" stroke-width="2.5"></circle>
+        <circle cx="90" cy="312" r="7" fill="#5cc8ff"></circle>
+        <path d="M 78 332 Q 78 324 90 322 Q 102 324 102 332 Z" fill="#5cc8ff"></path>
+
+        <circle cx="450" cy="320" r="40" fill="url(#rmNodeGlow)"></circle>
+        <circle cx="450" cy="320" r="26" fill="url(#rmNodeFill)" stroke="#2ea8ff" stroke-width="2.5"></circle>
+        <circle cx="450" cy="312" r="7" fill="#5cc8ff"></circle>
+        <path d="M 438 332 Q 438 324 450 322 Q 462 324 462 332 Z" fill="#5cc8ff"></path>
+
+        <circle cx="270" cy="40" r="40" fill="url(#rmNodeGlow)"></circle>
+        <circle cx="270" cy="40" r="26" fill="url(#rmNodeActive)" stroke="#1c72e0" stroke-width="2.5"></circle>
+        <circle cx="270" cy="32" r="7" fill="#ffffff"></circle>
+        <path d="M 258 52 Q 258 44 270 42 Q 282 44 282 52 Z" fill="#ffffff"></path>
+        <circle cx="292" cy="26" r="7" fill="#ffe8a0" stroke="#c25a1a" stroke-width="1.2"></circle>
+        <text x="292" y="30" font-size="8" font-weight="800" fill="#c25a1a" text-anchor="middle">₽</text>
+
+        <circle cx="270" cy="350" r="40" fill="url(#rmNodeGlow)"></circle>
+        <circle cx="270" cy="350" r="26" fill="url(#rmNodeFill)" stroke="#2ea8ff" stroke-width="2.5"></circle>
+        <circle cx="270" cy="342" r="7" fill="#5cc8ff"></circle>
+        <path d="M 258 362 Q 258 354 270 352 Q 282 354 282 362 Z" fill="#5cc8ff"></path>
+
+        <text x="270" y="230" font-size="10" font-weight="800" fill="#0a4fa8" text-anchor="middle" letter-spacing="1">ТЫ</text>
+      </svg>
+    </div>
+
+    <div class="growth-networks">
+      <div class="gn-card">
+        <div class="gn-tag">Сейчас</div>
+        <svg class="gn-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+          <line x1="50" y1="50" x2="20" y2="20" stroke="#a8d4ff" stroke-width="1.2" opacity="0.7"></line>
+          <line x1="50" y1="50" x2="80" y2="20" stroke="#a8d4ff" stroke-width="1.2" opacity="0.7"></line>
+          <line x1="50" y1="50" x2="50" y2="85" stroke="#a8d4ff" stroke-width="1.2" opacity="0.7"></line>
+          <circle cx="50" cy="50" r="10" fill="#1c72e0"></circle>
+          <circle cx="20" cy="20" r="6" fill="#5cc8ff"></circle>
+          <circle cx="80" cy="20" r="6" fill="#5cc8ff"></circle>
+          <circle cx="50" cy="85" r="6" fill="#5cc8ff"></circle>
+        </svg>
+        <div class="gn-num">15</div>
+        <div class="gn-note">человек знают, что ты в страховании</div>
+      </div>
+
+      <div class="gn-card">
+        <div class="gn-tag">Через месяц</div>
+        <svg class="gn-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+          <line x1="50" y1="50" x2="15" y2="20" stroke="#a8d4ff" stroke-width="1" opacity="0.7"></line>
+          <line x1="50" y1="50" x2="85" y2="20" stroke="#a8d4ff" stroke-width="1" opacity="0.7"></line>
+          <line x1="50" y1="50" x2="12" y2="55" stroke="#a8d4ff" stroke-width="1" opacity="0.7"></line>
+          <line x1="50" y1="50" x2="88" y2="55" stroke="#a8d4ff" stroke-width="1" opacity="0.7"></line>
+          <line x1="50" y1="50" x2="30" y2="88" stroke="#a8d4ff" stroke-width="1" opacity="0.7"></line>
+          <line x1="50" y1="50" x2="70" y2="88" stroke="#a8d4ff" stroke-width="1" opacity="0.7"></line>
+          <circle cx="50" cy="50" r="9" fill="#1c72e0"></circle>
+          <circle cx="15" cy="20" r="5" fill="#2ea8ff"></circle>
+          <circle cx="85" cy="20" r="5" fill="#2ea8ff"></circle>
+          <circle cx="12" cy="55" r="5" fill="#2ea8ff"></circle>
+          <circle cx="88" cy="55" r="5" fill="#2ea8ff"></circle>
+          <circle cx="30" cy="88" r="5" fill="#2ea8ff"></circle>
+          <circle cx="70" cy="88" r="5" fill="#2ea8ff"></circle>
+        </svg>
+        <div class="gn-num">50+</div>
+        <div class="gn-note">уже знают и передают дальше</div>
+      </div>
+
+      <div class="gn-card">
+        <div class="gn-tag">Через полгода</div>
+        <svg class="gn-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+          <line x1="50" y1="50" x2="10" y2="15" stroke="#2ea8ff" stroke-width="0.9" opacity="0.7"></line>
+          <line x1="50" y1="50" x2="50" y2="8" stroke="#2ea8ff" stroke-width="0.9" opacity="0.7"></line>
+          <line x1="50" y1="50" x2="90" y2="15" stroke="#2ea8ff" stroke-width="0.9" opacity="0.7"></line>
+          <line x1="50" y1="50" x2="8" y2="50" stroke="#2ea8ff" stroke-width="0.9" opacity="0.7"></line>
+          <line x1="50" y1="50" x2="92" y2="50" stroke="#2ea8ff" stroke-width="0.9" opacity="0.7"></line>
+          <line x1="50" y1="50" x2="15" y2="85" stroke="#2ea8ff" stroke-width="0.9" opacity="0.7"></line>
+          <line x1="50" y1="50" x2="50" y2="92" stroke="#2ea8ff" stroke-width="0.9" opacity="0.7"></line>
+          <line x1="50" y1="50" x2="85" y2="85" stroke="#2ea8ff" stroke-width="0.9" opacity="0.7"></line>
+          <line x1="10" y1="15" x2="50" y2="8" stroke="#a8d4ff" stroke-width="0.7" opacity="0.5"></line>
+          <line x1="90" y1="15" x2="50" y2="8" stroke="#a8d4ff" stroke-width="0.7" opacity="0.5"></line>
+          <line x1="8" y1="50" x2="10" y2="15" stroke="#a8d4ff" stroke-width="0.7" opacity="0.5"></line>
+          <line x1="92" y1="50" x2="90" y2="15" stroke="#a8d4ff" stroke-width="0.7" opacity="0.5"></line>
+          <line x1="15" y1="85" x2="8" y2="50" stroke="#a8d4ff" stroke-width="0.7" opacity="0.5"></line>
+          <line x1="85" y1="85" x2="92" y2="50" stroke="#a8d4ff" stroke-width="0.7" opacity="0.5"></line>
+          <line x1="50" y1="92" x2="15" y2="85" stroke="#a8d4ff" stroke-width="0.7" opacity="0.5"></line>
+          <line x1="50" y1="92" x2="85" y2="85" stroke="#a8d4ff" stroke-width="0.7" opacity="0.5"></line>
+          <circle cx="50" cy="50" r="9" fill="#0a4fa8"></circle>
+          <circle cx="10" cy="15" r="4" fill="#5cc8ff"></circle>
+          <circle cx="50" cy="8" r="4" fill="#5cc8ff"></circle>
+          <circle cx="90" cy="15" r="4" fill="#5cc8ff"></circle>
+          <circle cx="8" cy="50" r="4" fill="#5cc8ff"></circle>
+          <circle cx="92" cy="50" r="4" fill="#5cc8ff"></circle>
+          <circle cx="15" cy="85" r="4" fill="#5cc8ff"></circle>
+          <circle cx="50" cy="92" r="4" fill="#5cc8ff"></circle>
+          <circle cx="85" cy="85" r="4" fill="#5cc8ff"></circle>
+        </svg>
+        <div class="gn-num">200+</div>
+        <div class="gn-note">ты уже «тот самый знакомый в страховании»</div>
+      </div>
+    </div>
+
+    <div class="referral-why">
+      <div class="rw-tag">Как это работает</div>
+      <div class="rw-text">Сарафан включается <b>в момент знакомства</b>, а не в момент сделки. Ты написал 15 людям — значит, 15 человек теперь знают: <b>«есть знакомый, который в страховании»</b>. Кто-то вспомнит тебя через неделю, кто-то через месяц, кто-то через год. И тогда напишет тебе — или приведёт друга. <b>Это не «отказы» — это отложенный сарафан.</b></div>
+    </div>
+
+    <div class="final-punch">
+      <div class="fp-tag">Запомни главное</div>
+      <div class="fp-quote">Даже «нет» сегодня —<br>это <b>«да» через месяц</b>,<br>когда тему поднимет кто-то другой.</div>
+    </div>
+
+    <div class="page-footer">Вводный в работу · Страховой агент</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     11 · ФИЛОСОФИЯ
+     ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="content-header">
+      <span class="tag">Главная мысль</span>
+      <span class="pnum">11</span>
+    </div>
+
+    <h2 class="big-title">Секрет, который отличает <span class="accent">успешного</span> агента от уставшего</h2>
+    <p class="subtitle">Если запомнишь из этого документа только одну страницу — пусть это будет эта. Одна мысль, которая определяет, будешь ты зарабатывать или сгоришь через месяц.</p>
+
+    <div class="philosophy-panel">
+      <div class="ph-tag">Философия агента</div>
+      <h3>Продавец в страховании <span class="coral">не заработает</span>.<br>Заработает тот, кто искренне хочет помочь.</h3>
+
+      <p class="ph-lead">Люди чувствуют фальшь за секунду. Если ты пишешь с мыслью <b>«надо продать»</b> — тебя раскусят. Если с мыслью <b>«хочу помочь разобраться»</b> — тебе поверят. Разница не в словах, а в намерении. Поэтому одни зарабатывают, а другие уходят через два месяца.</p>
+
+      <div class="ph-compare">
+        <div class="ph-side bad">
+          <div class="ph-side-title">Продавец</div>
+          <p>Думает: <b>«как продать»</b></p>
+          <p>Давит, торопит, использует скрипты ради скриптов</p>
+          <p>Клиент чувствует давление и закрывается</p>
+          <p>Одна сделка — и человек исчезает навсегда</p>
+          <p>Выгорает через 2–3 месяца</p>
+        </div>
+        <div class="ph-side good">
+          <div class="ph-side-title">Помощник</div>
+          <p>Думает: <b>«как помочь»</b></p>
+          <p>Спрашивает, слушает, объясняет простыми словами</p>
+          <p>Клиент чувствует заботу и доверяет</p>
+          <p>Возвращается сам и приводит друзей</p>
+          <p>Работает годами и растёт</p>
+        </div>
+      </div>
+
+      <div class="ph-quote">
+        Не думай «как продать» — думай «как помочь».<br><b>Тогда продастся само.</b>
+      </div>
+    </div>
+
+    <div class="why-block">
+      <h3>Почему это критично именно в страховании</h3>
+      <p>Страховка — не товар, который можно «впарить». Это <b>доверие на годы</b>. Человек доверяет тебе защиту своей машины, квартиры, семьи. Если почувствует, что ты думаешь только о комиссии — уйдёт. Если почувствует, что ты искренне помогаешь — останется навсегда и приведёт всех своих.</p>
+      <p><b>Успешный агент — не тот, кто умеет продавать. А тот, кому доверяют.</b></p>
+    </div>
+
+    <div class="page-footer">Вводный в работу · Страховой агент</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     12 · ТЫ НУЖЕН ЛЮДЯМ
+     ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="content-header">
+      <span class="tag">Ты нужен людям</span>
+      <span class="pnum">12</span>
+    </div>
+
+    <h2 class="big-title">У каждого должен быть <span class="accent">свой человек</span></h2>
+    <p class="subtitle">Подумай: когда что-то случается — болезнь, спор, авария, покупка квартиры — кому ты звонишь первым? <b>Не в компанию. Не на горячую линию. А знакомому.</b> У каждого есть свой набор «своих людей». И в этом наборе не хватает одного.</p>
+
+    <div class="need-grid">
+
+      <div class="need-card">
+        <div class="need-svg">
+          <svg viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <lineargradient id="ndDocBody" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#e8f4ff"></stop>
+                <stop offset="100%" stop-color="#a8d4ff"></stop>
+              </lineargradient>
+              <lineargradient id="ndDocHead" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#dceaff"></stop>
+                <stop offset="100%" stop-color="#8fc4f0"></stop>
+              </lineargradient>
+            </defs>
+            <circle cx="60" cy="38" r="18" fill="url(#ndDocHead)"></circle>
+            <path d="M 42 36 Q 42 20 60 20 Q 78 20 78 36 Q 74 26 60 24 Q 46 26 42 36 Z" fill="#4a7fc0" opacity="0.55"></path>
+            <circle cx="54" cy="38" r="1.8" fill="#0a1f42"></circle>
+            <circle cx="66" cy="38" r="1.8" fill="#0a1f42"></circle>
+            <path d="M 54 46 Q 60 51 66 46" stroke="#0a1f42" stroke-width="1.6" fill="none" stroke-linecap="round"></path>
+            <path d="M 60 56 Q 38 60 32 84 L 28 130 Q 28 138 38 138 L 82 138 Q 92 138 92 130 L 88 84 Q 82 60 60 56 Z" fill="url(#ndDocBody)"></path>
+            <path d="M 60 58 L 54 92 L 60 120 L 66 92 Z" fill="#ffffff"></path>
+            <path d="M 60 66 L 57 78 L 60 88 L 63 78 Z" fill="#4a7fc0"></path>
+            <circle cx="60" cy="102" r="2" fill="#4a7fc0"></circle>
+            <circle cx="60" cy="112" r="2" fill="#4a7fc0"></circle>
+            <g transform="translate(72, 72)">
+              <circle cx="10" cy="10" r="9" fill="#ffffff" stroke="#4a7fc0" stroke-width="2"></circle>
+              <path d="M 10 5 L 10 15 M 5 10 L 15 10" stroke="#c25a1a" stroke-width="2.4" stroke-linecap="round"></path>
+            </g>
+          </svg>
+        </div>
+        <div class="need-name">Врач</div>
+        <div class="need-desc">Когда заболеешь — кому позвонить, чтобы не паниковать</div>
+      </div>
+
+      <div class="need-card">
+        <div class="need-svg">
+          <svg viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <lineargradient id="ndLawBody" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#eaf0ff"></stop>
+                <stop offset="100%" stop-color="#a8b8e8"></stop>
+              </lineargradient>
+              <lineargradient id="ndLawHead" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#dce4ff"></stop>
+                <stop offset="100%" stop-color="#8f9fd8"></stop>
+              </lineargradient>
+            </defs>
+            <circle cx="60" cy="38" r="18" fill="url(#ndLawHead)"></circle>
+            <path d="M 42 36 Q 42 20 60 20 Q 78 20 78 36 Q 74 26 60 24 Q 46 26 42 36 Z" fill="#3b5478" opacity="0.55"></path>
+            <circle cx="54" cy="38" r="1.8" fill="#0a1f42"></circle>
+            <circle cx="66" cy="38" r="1.8" fill="#0a1f42"></circle>
+            <path d="M 55 46 L 65 46" stroke="#0a1f42" stroke-width="1.6" stroke-linecap="round"></path>
+            <path d="M 60 56 Q 38 60 32 84 L 28 130 Q 28 138 38 138 L 82 138 Q 92 138 92 130 L 88 84 Q 82 60 60 56 Z" fill="url(#ndLawBody)"></path>
+            <path d="M 60 58 L 52 88 L 60 108 L 68 88 Z" fill="#ffffff"></path>
+            <path d="M 60 60 L 56 84 L 60 96 L 64 84 Z" fill="#3b5478"></path>
+            <path d="M 52 100 L 68 100 L 66 120 L 54 120 Z" fill="#ffffff" stroke="#3b5478" stroke-width="1.2"></path>
+            <path d="M 55 106 L 65 106 M 55 111 L 63 111" stroke="#3b5478" stroke-width="1" stroke-linecap="round"></path>
+            <g transform="translate(70, 68)">
+              <path d="M 8 0 L 16 0 L 16 4 L 8 4 Z" fill="#8f9fd8"></path>
+              <path d="M 2 4 L 22 4 L 22 20 L 2 20 Z" fill="#ffffff" stroke="#3b5478" stroke-width="1.4"></path>
+              <path d="M 12 8 L 12 16 M 8 12 L 16 12" stroke="#3b5478" stroke-width="1.6" stroke-linecap="round"></path>
+            </g>
+          </svg>
+        </div>
+        <div class="need-name">Юрист</div>
+        <div class="need-desc">Когда спор, договор или проблема с законом</div>
+      </div>
+
+      <div class="need-card">
+        <div class="need-svg">
+          <svg viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <lineargradient id="ndMechBody" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#e8f4ff"></stop>
+                <stop offset="100%" stop-color="#7ea8d8"></stop>
+              </lineargradient>
+              <lineargradient id="ndMechHead" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#dceaff"></stop>
+                <stop offset="100%" stop-color="#6b96c8"></stop>
+              </lineargradient>
+            </defs>
+            <circle cx="60" cy="38" r="18" fill="url(#ndMechHead)"></circle>
+            <path d="M 42 30 Q 42 18 60 18 Q 78 18 78 30 L 78 34 Q 70 30 60 30 Q 50 30 42 34 Z" fill="#0a4fa8"></path>
+            <path d="M 42 34 L 78 34" stroke="#0a4fa8" stroke-width="2"></path>
+            <circle cx="54" cy="40" r="1.8" fill="#0a1f42"></circle>
+            <circle cx="66" cy="40" r="1.8" fill="#0a1f42"></circle>
+            <path d="M 54 48 Q 60 53 66 48" stroke="#0a1f42" stroke-width="1.6" fill="none" stroke-linecap="round"></path>
+            <path d="M 60 56 Q 38 60 32 84 L 28 130 Q 28 138 38 138 L 82 138 Q 92 138 92 130 L 88 84 Q 82 60 60 56 Z" fill="url(#ndMechBody)"></path>
+            <path d="M 60 58 L 56 92 L 60 110 L 64 92 Z" fill="#1c72e0"></path>
+            <rect x="40" y="98" width="14" height="12" rx="1" fill="#ffffff" stroke="#1c72e0" stroke-width="1"></rect>
+            <rect x="66" y="98" width="14" height="12" rx="1" fill="#ffffff" stroke="#1c72e0" stroke-width="1"></rect>
+            <g transform="translate(72, 66) rotate(20)">
+              <path d="M 0 6 L 4 6 L 4 14 L 0 14 Z" fill="#6b83a4"></path>
+              <path d="M -4 0 L 8 0 L 8 8 L -4 8 Z" fill="#c2d5ef" stroke="#3b5478" stroke-width="1"></path>
+              <path d="M -2 -3 L 6 -3 L 6 0 L -2 0 Z" fill="#c2d5ef" stroke="#3b5478" stroke-width="1"></path>
+            </g>
+          </svg>
+        </div>
+        <div class="need-name">Автослесарь</div>
+        <div class="need-desc">Когда машина сломалась — кому доверить ремонт</div>
+      </div>
+
+      <div class="need-card">
+        <div class="need-svg">
+          <svg viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <lineargradient id="ndRealBody" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#f0f4ff"></stop>
+                <stop offset="100%" stop-color="#b8c4e8"></stop>
+              </lineargradient>
+              <lineargradient id="ndRealHead" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#e0e8ff"></stop>
+                <stop offset="100%" stop-color="#98a8d8"></stop>
+              </lineargradient>
+            </defs>
+            <circle cx="60" cy="38" r="18" fill="url(#ndRealHead)"></circle>
+            <path d="M 42 36 Q 42 20 60 20 Q 78 20 78 36 Q 74 26 60 24 Q 46 26 42 36 Z" fill="#4a5a88" opacity="0.5"></path>
+            <circle cx="54" cy="38" r="1.8" fill="#0a1f42"></circle>
+            <circle cx="66" cy="38" r="1.8" fill="#0a1f42"></circle>
+            <path d="M 54 46 Q 60 51 66 46" stroke="#0a1f42" stroke-width="1.6" fill="none" stroke-linecap="round"></path>
+            <path d="M 60 56 Q 38 60 32 84 L 28 130 Q 28 138 38 138 L 82 138 Q 92 138 92 130 L 88 84 Q 82 60 60 56 Z" fill="url(#ndRealBody)"></path>
+            <path d="M 60 58 L 52 90 L 60 110 L 68 90 Z" fill="#ffffff"></path>
+            <path d="M 60 60 L 56 86 L 60 100 L 64 86 Z" fill="#4a5a88"></path>
+            <g transform="translate(70, 68)">
+              <path d="M 0 14 L 10 5 L 20 14 L 20 26 L 0 26 Z" fill="#ffffff" stroke="#4a5a88" stroke-width="1.4" stroke-linejoin="round"></path>
+              <path d="M 6 26 L 6 18 L 14 18 L 14 26" fill="#c2d5ef" stroke="#4a5a88" stroke-width="1"></path>
+            </g>
+          </svg>
+        </div>
+        <div class="need-name">Риелтор</div>
+        <div class="need-desc">Когда покупка или продажа квартиры — чтобы не обманули</div>
+      </div>
+
+      <div class="need-card">
+        <div class="need-svg">
+          <svg viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <lineargradient id="ndFinBody" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#e8f0ff"></stop>
+                <stop offset="100%" stop-color="#9eb8e0"></stop>
+              </lineargradient>
+              <lineargradient id="ndFinHead" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#dce8ff"></stop>
+                <stop offset="100%" stop-color="#8098c8"></stop>
+              </lineargradient>
+            </defs>
+            <circle cx="60" cy="38" r="18" fill="url(#ndFinHead)"></circle>
+            <path d="M 42 36 Q 42 20 60 20 Q 78 20 78 36 Q 74 26 60 24 Q 46 26 42 36 Z" fill="#3b5478" opacity="0.55"></path>
+            <circle cx="54" cy="38" r="1.8" fill="#0a1f42"></circle>
+            <circle cx="66" cy="38" r="1.8" fill="#0a1f42"></circle>
+            <path d="M 55 46 L 65 46" stroke="#0a1f42" stroke-width="1.6" stroke-linecap="round"></path>
+            <path d="M 60 56 Q 38 60 32 84 L 28 130 Q 28 138 38 138 L 82 138 Q 92 138 92 130 L 88 84 Q 82 60 60 56 Z" fill="url(#ndFinBody)"></path>
+            <path d="M 60 58 L 54 90 L 60 112 L 66 90 Z" fill="#ffffff"></path>
+            <path d="M 60 60 L 57 88 L 60 102 L 63 88 Z" fill="#3b5478"></path>
+            <g transform="translate(70, 70)">
+              <rect x="0" y="8" width="20" height="16" rx="1" fill="#ffffff" stroke="#3b5478" stroke-width="1.2"></rect>
+              <path d="M 3 18 L 7 14 L 10 16 L 15 10" stroke="#12a86a" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+              <circle cx="15" cy="10" r="1.5" fill="#12a86a"></circle>
+            </g>
+          </svg>
+        </div>
+        <div class="need-name">Финансист</div>
+        <div class="need-desc">Когда нужно разобраться с деньгами, вкладом, кредитом</div>
+      </div>
+
+      <div class="need-card need-card-main">
+        <div class="need-badge">И вот сюда</div>
+        <div class="need-svg">
+          <svg viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <lineargradient id="ndInsBody" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#5cc8ff"></stop>
+                <stop offset="45%" stop-color="#1c72e0"></stop>
+                <stop offset="100%" stop-color="#0a4fa8"></stop>
+              </lineargradient>
+              <lineargradient id="ndInsHead" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#a8dcff"></stop>
+                <stop offset="100%" stop-color="#2ea8ff"></stop>
+              </lineargradient>
+              <radialgradient id="ndInsGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#5cc8ff" stop-opacity=".55"></stop>
+                <stop offset="100%" stop-color="#5cc8ff" stop-opacity="0"></stop>
+              </radialgradient>
+            </defs>
+
+            <circle cx="60" cy="70" r="58" fill="url(#ndInsGlow)"></circle>
+
+            <circle cx="60" cy="34" r="19" fill="url(#ndInsHead)"></circle>
+            <path d="M 41 32 Q 41 15 60 15 Q 79 15 79 32 Q 74 21 60 19 Q 46 21 41 32 Z" fill="#0a4fa8" opacity="0.7"></path>
+            <circle cx="54" cy="34" r="1.8" fill="#0a1f42"></circle>
+            <circle cx="66" cy="34" r="1.8" fill="#0a1f42"></circle>
+            <path d="M 54 42 Q 60 48 66 42" stroke="#0a1f42" stroke-width="1.8" fill="none" stroke-linecap="round"></path>
+
+            <rect x="55" y="52" width="10" height="7" fill="#2ea8ff" opacity="0.9"></rect>
+
+            <path d="M 60 60 Q 36 64 30 90 L 26 132 Q 26 140 36 140 L 84 140 Q 94 140 94 132 L 90 90 Q 84 64 60 60 Z" fill="url(#ndInsBody)"></path>
+
+            <path d="M 60 62 L 52 96 L 60 120 L 68 96 Z" fill="#ffffff"></path>
+            <path d="M 60 66 L 56 92 L 60 108 L 64 92 Z" fill="#0a4fa8"></path>
+            <circle cx="60" cy="128" r="1.6" fill="#ffffff" opacity="0.7"></circle>
+
+            <g transform="translate(78, 68)">
+              <path d="M 0 0 L 18 0 L 18 12 Q 18 22 9 27 Q 0 22 0 12 Z" fill="#ffffff" stroke="#0a4fa8" stroke-width="1.6" stroke-linejoin="round"></path>
+              <path d="M 5 12 L 8 15 L 14 8" stroke="#12a86a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+
+            <circle cx="34" cy="70" r="3" fill="#5cc8ff"></circle>
+            <circle cx="34" cy="70" r="6" fill="none" stroke="#5cc8ff" stroke-width="1.2" opacity="0.5"></circle>
+            <circle cx="34" cy="70" r="9" fill="none" stroke="#5cc8ff" stroke-width="0.9" opacity="0.3"></circle>
+          </svg>
+        </div>
+        <div class="need-name-main">Страховой агент</div>
+        <div class="need-desc-main">Когда что-то случилось — авария, пожар, залив, кража. <b>Он закрывает все остальные риски сразу.</b></div>
+      </div>
+
+    </div>
+
+    <div class="need-conclusion">
+      <div class="nc-tag">Простая мысль</div>
+      <div class="nc-text">У большинства людей уже есть знакомый врач, юрист, слесарь. Но <b>почти ни у кого нет знакомого страхового агента</b> — того, кто поможет, когда беда уже случилась. Это <b>пустое место в наборе</b>. И ты можешь его занять — у своих знакомых, друзей, соседей. Просто потому, что ты рядом и разбираешься.</div>
+    </div>
+
+    <div class="final-punch">
+      <div class="fp-tag">Запомни</div>
+      <div class="fp-quote">Людям не нужен «продавец полисов».<br>Людям нужен <b>свой человек</b>,<br>который поможет, когда случится беда.</div>
+    </div>
+
+    <div class="page-footer">Вводный в работу · Страховой агент</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     13 · ЛЕСТНИЦА ДОХОДА
+     ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="content-header">
+      <span class="tag">Лестница дохода</span>
+      <span class="pnum">13</span>
+    </div>
+
+    <h2 class="big-title">Лестница дохода <span class="money">агента</span></h2>
+    <p class="subtitle">Каждый месяц — ступень вверх. Не «повезло», а <b>математика трёх каналов</b>: знакомые + Авито + сарафан. Начнёшь с 60 000 ₽ — через полгода выйдешь на 210 000 ₽.</p>
+
+    <div class="stairs-panel">
+      <div class="sp-title">Путь агента · от первой ступени до потока</div>
+      <svg viewBox="0 0 520 340" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <lineargradient id="stepG1" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#a8d4ff"></stop>
+            <stop offset="100%" stop-color="#6bb0e8"></stop>
+          </lineargradient>
+          <lineargradient id="stepG2" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#5cc8ff"></stop>
+            <stop offset="100%" stop-color="#2ea8ff"></stop>
+          </lineargradient>
+          <lineargradient id="stepG3" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#2ea8ff"></stop>
+            <stop offset="100%" stop-color="#1c72e0"></stop>
+          </lineargradient>
+          <lineargradient id="stepG4" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#1c72e0"></stop>
+            <stop offset="100%" stop-color="#0a4fa8"></stop>
+          </lineargradient>
+          <radialgradient id="stepGlow4" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#2ea8ff" stop-opacity=".55"></stop>
+            <stop offset="100%" stop-color="#2ea8ff" stop-opacity="0"></stop>
+          </radialgradient>
+          <lineargradient id="stepPerson" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff"></stop>
+            <stop offset="100%" stop-color="#dceaff"></stop>
+          </lineargradient>
+        </defs>
+
+        <line x1="40" y1="308" x2="500" y2="308" stroke="#c2d5ef" stroke-width="1.5"></line>
+
+        <rect x="40" y="252" width="90" height="56" rx="2" fill="url(#stepG1)"></rect>
+        <text x="85" y="240" font-size="14" font-weight="800" fill="#4a7fc0" text-anchor="middle">60 000 ₽</text>
+        <text x="85" y="282" font-size="10" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="1">МЕС. I</text>
+
+        <rect x="140" y="204" width="90" height="104" rx="2" fill="url(#stepG2)"></rect>
+        <text x="185" y="192" font-size="14" font-weight="800" fill="#1c72e0" text-anchor="middle">110 000 ₽</text>
+        <text x="185" y="250" font-size="10" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="1">МЕС. II</text>
+
+        <rect x="240" y="150" width="90" height="158" rx="2" fill="url(#stepG3)"></rect>
+        <text x="285" y="138" font-size="14" font-weight="800" fill="#0a4fa8" text-anchor="middle">160 000 ₽</text>
+        <text x="285" y="210" font-size="10" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="1">МЕС. III</text>
+
+        <circle cx="380" cy="60" r="45" fill="url(#stepGlow4)"></circle>
+        <rect x="340" y="80" width="100" height="228" rx="2" fill="url(#stepG4)"></rect>
+        <text x="390" y="68" font-size="16" font-weight="800" fill="#0a4fa8" text-anchor="middle">210 000 ₽</text>
+        <text x="390" y="170" font-size="10" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="1">МЕС. VI</text>
+
+        <path d="M 390 80 L 390 50 M 390 50 L 412 58 L 390 66" stroke="#0a4fa8" stroke-width="2.2" fill="#2ea8ff" stroke-linejoin="round"></path>
+
+        <g transform="translate(390, 46)">
+          <circle cx="0" cy="-8" r="5" fill="url(#stepPerson)"></circle>
+          <path d="M -5 4 Q -5 -2 0 -3 Q 5 -2 5 4 Z" fill="url(#stepPerson)"></path>
+        </g>
+
+        <path d="M 20 300 L 20 30 M 20 30 L 12 42 M 20 30 L 28 42" stroke="#2ea8ff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"></path>
+
+        <text x="20" y="325" font-size="9" font-weight="800" fill="#6b83a4" letter-spacing="1">СТАРТ</text>
+        <text x="500" y="325" font-size="9" font-weight="800" fill="#0a4fa8" text-anchor="end" letter-spacing="1">ПОТОК</text>
+      </svg>
+    </div>
+
+    <div class="level-legend">
+      <div class="level-card l1">
+        <div class="lc-name">Ступень 1</div>
+        <div class="lc-sum">60 000 ₽</div>
+        <div class="lc-note">Только знакомые. Учишься, набираешь опыт.</div>
+      </div>
+      <div class="level-card l2">
+        <div class="lc-name">Ступень 2</div>
+        <div class="lc-sum">110 000 ₽</div>
+        <div class="lc-note">Подключил Авито. Поток заявок пошёл.</div>
+      </div>
+      <div class="level-card l3">
+        <div class="lc-name">Ступень 3</div>
+        <div class="lc-sum">160 000 ₽</div>
+        <div class="lc-note">Сарафан включился. Клиенты идут сами.</div>
+      </div>
+      <div class="level-card l4">
+        <div class="lc-name">Ступень 4</div>
+        <div class="lc-sum">210 000 ₽</div>
+        <div class="lc-note">Система работает на тебя. Поток стабилен.</div>
+      </div>
+    </div>
+
+    <div class="why-block">
+      <h3>Почему ступени именно такие</h3>
+      <p>Первая ступень — <b>только знакомые</b>. Ты делаешь первые контакты, получаешь первые деньги. Вторая — <b>подключаешь Авито</b>: заявки от незнакомых, канал не зависит от круга. Третья — <b>включается сарафан</b>: клиенты приводят друзей. Четвёртая — <b>система</b>: три канала работают параллельно, продления приходят сами.</p>
+    </div>
+
+    <div class="final-punch">
+      <div class="fp-tag">Главное, что стоит запомнить</div>
+      <div class="fp-quote">Продавец не заработает.<br>Заработает тот, кто <b>искренне помогает</b>.<br>Тогда продастся само.</div>
+    </div>
+
+    <div class="page-footer">
+      Вводный в работу · Страховой агент<br>
+      Начни с первого шага — сегодня
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     14 · КАРЬЕРНЫЙ РОСТ (НОВАЯ СТРАНИЦА)
+     ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="content-header">
+      <span class="tag">Карьерный рост</span>
+      <span class="pnum">14</span>
+    </div>
+
+    <h2 class="big-title">Из агента — <span class="accent">в руководителя</span></h2>
+    <p class="subtitle">Агент — это не «конечная точка». Это <b>первая ступень</b> карьеры. Через 6–12 месяцев можно вырасти в руководителя: обучать новичков, строить команду и получать <b>процент с их продаж</b>. Твой доход перестаёт зависеть только от твоих личных усилий.</p>
+
+    <div class="career-grid">
+
+      <!-- ЛЕВАЯ КОЛОНКА: ГЕРОЙ -->
+      <div class="career-hero">
+        <div class="ch-tag">Ты — руководитель</div>
+        <div class="ch-name">Агент → Наставник → Руководитель</div>
+        <div class="ch-art">
+          <svg viewBox="0 0 260 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <lineargradient id="crBody" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#5cc8ff"></stop>
+                <stop offset="45%" stop-color="#1c72e0"></stop>
+                <stop offset="100%" stop-color="#0a4fa8"></stop>
+              </lineargradient>
+              <lineargradient id="crHead" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#a8dcff"></stop>
+                <stop offset="100%" stop-color="#2ea8ff"></stop>
+              </lineargradient>
+              <lineargradient id="crShirt" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff"></stop>
+                <stop offset="100%" stop-color="#dceaff"></stop>
+              </lineargradient>
+              <radialgradient id="crGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#5cc8ff" stop-opacity=".5"></stop>
+                <stop offset="100%" stop-color="#5cc8ff" stop-opacity="0"></stop>
+              </radialgradient>
+              <radialgradient id="crBadgeGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#ffe8a0" stop-opacity=".55"></stop>
+                <stop offset="100%" stop-color="#ffe8a0" stop-opacity="0"></stop>
+              </radialgradient>
+              <lineargradient id="crBadge" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#ffe8a0"></stop>
+                <stop offset="100%" stop-color="#c25a1a"></stop>
+              </lineargradient>
+            </defs>
+
+            <circle cx="130" cy="170" r="115" fill="url(#crGlow)"></circle>
+
+            <!-- Бейдж руководителя сверху -->
+            <g transform="translate(130, 36)">
+              <circle cx="0" cy="0" r="34" fill="url(#crBadgeGlow)"></circle>
+              <circle cx="0" cy="0" r="20" fill="#12a86a" stroke="#12a86a" stroke-width="1.6"></circle>
+              <path d="M -8 -2 L -2 4 L 10 -8" stroke="#ffffff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+
+            <!-- Лучи от бейджа к голове -->
+            <line x1="130" y1="58" x2="130" y2="76" stroke="#2ea8ff" stroke-width="1.6" opacity="0.5" stroke-dasharray="3 4"></line>
+
+            <!-- Голова -->
+            <circle cx="130" cy="96" r="24" fill="url(#crHead)"></circle>
+            <path d="M 106 94 Q 106 74 130 74 Q 154 74 154 94 Q 148 82 130 80 Q 112 82 106 94 Z" fill="#0a4fa8" opacity="0.75"></path>
+            <circle cx="122" cy="94" r="2" fill="#0a1f42"></circle>
+            <circle cx="138" cy="94" r="2" fill="#0a1f42"></circle>
+            <path d="M 122 104 Q 130 111 138 104" stroke="#0a1f42" stroke-width="2" fill="none" stroke-linecap="round"></path>
+
+            <!-- Воротничок -->
+            <rect x="123" y="118" width="14" height="8" fill="#2ea8ff" opacity="0.85"></rect>
+
+            <!-- Тело -->
+            <path d="M 130 128 Q 94 134 86 168 L 82 244 Q 82 256 96 256 L 164 256 Q 178 256 178 244 L 174 168 Q 166 134 130 128 Z" fill="url(#crBody)"></path>
+            <!-- Рубашка -->
+            <path d="M 130 130 L 118 178 L 130 200 L 142 178 Z" fill="url(#crShirt)"></path>
+            <!-- Галстук -->
+            <path d="M 130 158 L 124 194 L 130 224 L 136 194 Z" fill="#0a4fa8"></path>
+            <path d="M 130 158 L 126 170 L 130 178 L 134 170 Z" fill="#1c72e0"></path>
+            <!-- Лацканы -->
+            <path d="M 106 136 L 122 194 L 130 178 L 124 130 Z" fill="#0a4fa8" opacity="0.4"></path>
+            <path d="M 154 136 L 138 194 L 130 178 L 136 130 Z" fill="#0a4fa8" opacity="0.4"></path>
+
+            <!-- Пуговицы -->
+            <circle cx="130" cy="214" r="1.8" fill="#ffffff" opacity="0.6"></circle>
+            <circle cx="130" cy="226" r="1.8" fill="#ffffff" opacity="0.6"></circle>
+
+            <!-- Руки -->
+            <path d="M 92 152 Q 74 172 72 200 Q 72 212 80 214 Q 88 212 90 200 Q 92 180 100 164 Z" fill="url(#crBody)"></path>
+            <path d="M 168 152 Q 186 172 188 200 Q 188 212 180 214 Q 172 212 170 200 Q 168 180 160 164 Z" fill="url(#crBody)"></path>
+
+            <!-- Ноги -->
+            <path d="M 102 256 L 98 300 Q 98 308 106 308 L 114 308 Q 120 308 120 300 L 122 256 Z" fill="#0a4fa8"></path>
+            <path d="M 138 256 L 140 300 Q 140 308 146 308 L 154 308 Q 162 308 162 300 L 158 256 Z" fill="#0a4fa8"></path>
+            <ellipse cx="110" cy="310" rx="14" ry="5" fill="#0a1f42"></ellipse>
+            <ellipse cx="150" cy="310" rx="14" ry="5" fill="#0a1f42"></ellipse>
+
+            <!-- Звёздочки-искры -->
+            <circle cx="60" cy="80" r="2.2" fill="#5cc8ff"></circle>
+            <circle cx="200" cy="80" r="2.2" fill="#5cc8ff"></circle>
+            <circle cx="50" cy="170" r="1.8" fill="#a8d4ff"></circle>
+            <circle cx="210" cy="170" r="1.8" fill="#a8d4ff"></circle>
+          </svg>
+        </div>
+        <div class="ch-note">
+          Ты не просто продаёшь — ты <b>строишь систему</b>. Команда работает — ты получаешь процент.
+        </div>
+      </div>
+
+      <!-- ПРАВАЯ КОЛОНКА: 4 ШАГА -->
+      <div class="career-steps">
+        <div class="career-step">
+          <div class="cs-head">
+            <div class="cs-num">СТУПЕНЬ 1</div>
+            <div class="cs-title">Агент</div>
+          </div>
+          <div class="cs-text">Работаешь с клиентами сам. Учишься, набираешь базу, получаешь комиссию <b>до 60%</b>.</div>
+        </div>
+
+        <div class="career-step">
+          <div class="cs-head">
+            <div class="cs-num">СТУПЕНЬ 2</div>
+            <div class="cs-title">Наставник</div>
+          </div>
+          <div class="cs-text">Помогаешь новичкам. Ты уже знаешь продукт и умеешь объяснять. Появляется <b>первая команда из 2–3 человек</b>.</div>
+        </div>
+
+        <div class="career-step">
+          <div class="cs-head">
+            <div class="cs-num">СТУПЕНЬ 3</div>
+            <div class="cs-title">Старший агент</div>
+          </div>
+          <div class="cs-text">Своя база + своя мини-команда. <b>Двойной доход</b>: с личных продаж и с продаж команды.</div>
+        </div>
+
+        <div class="career-step cs-final">
+          <div class="cs-head">
+            <div class="cs-num">СТУПЕНЬ 4</div>
+            <div class="cs-title">Руководитель</div>
+          </div>
+          <div class="cs-text">Управляешь командой из <b>5–10+ агентов</b>. Обучаешь, поддерживаешь, распределяешь. Твой доход — <b>процент с общего оборота</b>. Ты уже не «бегаешь за клиентами», а <b>строишь бизнес</b>.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="team-panel">
+      <div class="tp-title">Твоя команда · все работают на общий результат</div>
+      <svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <lineargradient id="tmLeaderBody" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#5cc8ff"></stop>
+            <stop offset="45%" stop-color="#1c72e0"></stop>
+            <stop offset="100%" stop-color="#0a4fa8"></stop>
+          </lineargradient>
+          <lineargradient id="tmLeaderHead" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#a8dcff"></stop>
+            <stop offset="100%" stop-color="#2ea8ff"></stop>
+          </lineargradient>
+          <lineargradient id="tmAgentBody" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#a8d4ff"></stop>
+            <stop offset="100%" stop-color="#4a8fd0"></stop>
+          </lineargradient>
+          <lineargradient id="tmAgentHead" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#dceaff"></stop>
+            <stop offset="100%" stop-color="#8fc4f0"></stop>
+          </lineargradient>
+          <radialgradient id="tmLeaderGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#5cc8ff" stop-opacity=".55"></stop>
+            <stop offset="100%" stop-color="#5cc8ff" stop-opacity="0"></stop>
+          </radialgradient>
+          <radialgradient id="tmAgentGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#a8d4ff" stop-opacity=".45"></stop>
+            <stop offset="100%" stop-color="#a8d4ff" stop-opacity="0"></stop>
+          </radialgradient>
+          <lineargradient id="tmLine" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#2ea8ff" stop-opacity=".7"></stop>
+            <stop offset="100%" stop-color="#2ea8ff" stop-opacity=".15"></stop>
+          </lineargradient>
+          <lineargradient id="tmBadge" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#ffe8a0"></stop>
+            <stop offset="100%" stop-color="#c25a1a"></stop>
+          </lineargradient>
+        </defs>
+
+        <!-- Линии от лидера к команде -->
+        <line x1="320" y1="150" x2="110" y2="170" stroke="url(#tmLine)" stroke-width="2" stroke-dasharray="4 5"></line>
+        <line x1="320" y1="150" x2="210" y2="200" stroke="url(#tmLine)" stroke-width="2" stroke-dasharray="4 5"></line>
+        <line x1="320" y1="150" x2="430" y2="200" stroke="url(#tmLine)" stroke-width="2" stroke-dasharray="4 5"></line>
+        <line x1="320" y1="150" x2="530" y2="170" stroke="url(#tmLine)" stroke-width="2" stroke-dasharray="4 5"></line>
+
+        <!-- Лидер по центру -->
+        <g transform="translate(320, 100)">
+          <circle cx="0" cy="0" r="62" fill="url(#tmLeaderGlow)"></circle>
+          <circle cx="0" cy="-28" r="16" fill="url(#tmLeaderHead)"></circle>
+          <path d="M -16 -30 Q -16 -44 0 -44 Q 16 -44 16 -30 Q 12 -38 0 -40 Q -12 -38 -16 -30 Z" fill="#0a4fa8" opacity="0.75"></path>
+          <circle cx="-5" cy="-28" r="1.4" fill="#0a1f42"></circle>
+          <circle cx="5" cy="-28" r="1.4" fill="#0a1f42"></circle>
+          <path d="M -5 -22 Q 0 -18 5 -22" stroke="#0a1f42" stroke-width="1.6" fill="none" stroke-linecap="round"></path>
+          <rect x="-3" y="-11" width="6" height="5" fill="#2ea8ff" opacity="0.85"></rect>
+          <path d="M 0 -6 Q -20 -1 -25 22 L -26 52 Q -26 60 -18 60 L 18 60 Q 26 60 26 52 L 25 22 Q 20 -1 0 -6 Z" fill="url(#tmLeaderBody)"></path>
+          <path d="M 0 -4 L -4 18 L 0 30 L 4 18 Z" fill="#ffffff" opacity="0.9"></path>
+          <path d="M 0 6 L -3 22 L 0 36 L 3 22 Z" fill="#0a4fa8"></path>
+          <path d="M -13 -2 L -5 20 L 0 14 L -4 -4 Z" fill="#0a4fa8" opacity="0.4"></path>
+          <path d="M 13 -2 L 5 20 L 0 14 L 4 -4 Z" fill="#0a4fa8" opacity="0.4"></path>
+          <path d="M -20 4 Q -34 12 -38 30 Q -40 36 -34 38 Q -28 36 -26 28 Z" fill="url(#tmLeaderBody)"></path>
+          <path d="M 20 4 Q 34 12 38 30 Q 40 36 34 38 Q 28 36 26 28 Z" fill="url(#tmLeaderBody)"></path>
+          <!-- Бейдж лидера -->
+          <g transform="translate(0, -56)">
+            <circle cx="0" cy="0" r="11" fill="#12a86a" stroke="#12a86a" stroke-width="1.2"></circle>
+            <path d="M -4 -1 L -1 2 L 4 -3" stroke="#ffffff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+          </g>
+        </g>
+
+        <!-- Агент 1 (крайний левый) -->
+        <g transform="translate(110, 180)">
+          <circle cx="0" cy="0" r="44" fill="url(#tmAgentGlow)"></circle>
+          <circle cx="0" cy="-20" r="12" fill="url(#tmAgentHead)"></circle>
+          <path d="M -12 -22 Q -12 -32 0 -32 Q 12 -32 12 -22 Q 9 -28 0 -30 Q -9 -28 -12 -22 Z" fill="#4a7fc0" opacity="0.6"></path>
+          <circle cx="-4" cy="-20" r="1.2" fill="#0a1f42"></circle>
+          <circle cx="4" cy="-20" r="1.2" fill="#0a1f42"></circle>
+          <path d="M -4 -15 Q 0 -11 4 -15" stroke="#0a1f42" stroke-width="1.4" fill="none" stroke-linecap="round"></path>
+          <path d="M 0 -4 Q -15 0 -19 20 L -20 44 Q -20 50 -14 50 L 14 50 Q 20 50 20 44 L 19 20 Q 15 0 0 -4 Z" fill="url(#tmAgentBody)"></path>
+          <path d="M 0 -2 L -3 14 L 0 24 L 3 14 Z" fill="#ffffff" opacity="0.85"></path>
+        </g>
+
+        <!-- Агент 2 -->
+        <g transform="translate(210, 205)">
+          <circle cx="0" cy="0" r="44" fill="url(#tmAgentGlow)"></circle>
+          <circle cx="0" cy="-20" r="12" fill="url(#tmAgentHead)"></circle>
+          <path d="M -12 -22 Q -12 -32 0 -32 Q 12 -32 12 -22 Q 9 -28 0 -30 Q -9 -28 -12 -22 Z" fill="#4a7fc0" opacity="0.6"></path>
+          <circle cx="-4" cy="-20" r="1.2" fill="#0a1f42"></circle>
+          <circle cx="4" cy="-20" r="1.2" fill="#0a1f42"></circle>
+          <path d="M -4 -15 Q 0 -11 4 -15" stroke="#0a1f42" stroke-width="1.4" fill="none" stroke-linecap="round"></path>
+          <path d="M 0 -4 Q -15 0 -19 20 L -20 44 Q -20 50 -14 50 L 14 50 Q 20 50 20 44 L 19 20 Q 15 0 0 -4 Z" fill="url(#tmAgentBody)"></path>
+          <path d="M 0 -2 L -3 14 L 0 24 L 3 14 Z" fill="#ffffff" opacity="0.85"></path>
+        </g>
+
+        <!-- Агент 3 -->
+        <g transform="translate(430, 205)">
+          <circle cx="0" cy="0" r="44" fill="url(#tmAgentGlow)"></circle>
+          <circle cx="0" cy="-20" r="12" fill="url(#tmAgentHead)"></circle>
+          <path d="M -12 -22 Q -12 -32 0 -32 Q 12 -32 12 -22 Q 9 -28 0 -30 Q -9 -28 -12 -22 Z" fill="#4a7fc0" opacity="0.6"></path>
+          <circle cx="-4" cy="-20" r="1.2" fill="#0a1f42"></circle>
+          <circle cx="4" cy="-20" r="1.2" fill="#0a1f42"></circle>
+          <path d="M -4 -15 Q 0 -11 4 -15" stroke="#0a1f42" stroke-width="1.4" fill="none" stroke-linecap="round"></path>
+          <path d="M 0 -4 Q -15 0 -19 20 L -20 44 Q -20 50 -14 50 L 14 50 Q 20 50 20 44 L 19 20 Q 15 0 0 -4 Z" fill="url(#tmAgentBody)"></path>
+          <path d="M 0 -2 L -3 14 L 0 24 L 3 14 Z" fill="#ffffff" opacity="0.85"></path>
+        </g>
+
+        <!-- Агент 4 (крайний правый) -->
+        <g transform="translate(530, 180)">
+          <circle cx="0" cy="0" r="44" fill="url(#tmAgentGlow)"></circle>
+          <circle cx="0" cy="-20" r="12" fill="url(#tmAgentHead)"></circle>
+          <path d="M -12 -22 Q -12 -32 0 -32 Q 12 -32 12 -22 Q 9 -28 0 -30 Q -9 -28 -12 -22 Z" fill="#4a7fc0" opacity="0.6"></path>
+          <circle cx="-4" cy="-20" r="1.2" fill="#0a1f42"></circle>
+          <circle cx="4" cy="-20" r="1.2" fill="#0a1f42"></circle>
+          <path d="M -4 -15 Q 0 -11 4 -15" stroke="#0a1f42" stroke-width="1.4" fill="none" stroke-linecap="round"></path>
+          <path d="M 0 -4 Q -15 0 -19 20 L -20 44 Q -20 50 -14 50 L 14 50 Q 20 50 20 44 L 19 20 Q 15 0 0 -4 Z" fill="url(#tmAgentBody)"></path>
+          <path d="M 0 -2 L -3 14 L 0 24 L 3 14 Z" fill="#ffffff" opacity="0.85"></path>
+        </g>
+      </svg>
+      <div class="team-caption">
+        Ты в центре — <b>лидер и наставник</b>. Четверо агентов вокруг — твоя команда. Ты обучаешь, они продают, <b>ты получаешь процент с общего оборота.</b>
+      </div>
+    </div>
+
+    <div class="why-block">
+      <h3>Почему это выгодно именно тебе</h3>
+      <p>Агент зарабатывает <b>только со своих сделок</b>. Руководитель — <b>ещё и с команды</b>. Один ты можешь закрыть 10 полисов в месяц. Команда из 5 человек — 50 полисов. <b>Твой процент с этих 50 — это уже другой уровень дохода</b>, и он не требует, чтобы ты лично работал с каждым клиентом.</p>
+      <p>Плюс — руководитель <b>не выгорает</b>, потому что работает не «руками», а <b>головой</b>: обучает, поддерживает, помогает разбираться. Это уже <b>управление</b>.</p>
+    </div>
+
+    <div class="final-punch">
+      <div class="fp-tag">Главное</div>
+      <div class="fp-quote">Агент работает <b>со своими клиентами</b>.<br>Руководитель — <b>со своей командой</b>.<br>И зарабатывает в разы больше.</div>
+    </div>
+
+    <div class="page-footer">Вводный в работу · Страховой агент</div>
+  </div>
+</div>
+
+</div><!-- /#scaleWrap -->
+
+
+</body></html>
